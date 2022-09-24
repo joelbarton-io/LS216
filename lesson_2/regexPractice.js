@@ -1,8 +1,9 @@
-let str = `http://launchschool.com/
-https://mail.google.com/mail/u/0/#inbox
-htpps://example.com
-Go to http://launchschool.com/
-https://user.example.com/test.cgi?a=p&c=0&t=0&g=0 hello
-    http://launchschool.com/`
+let str = `,123,456,789,123,345,
+,123,456,,789,123,
+,23,56,7,
+,13,45,78,23,45,34,
+,13,45,78,23,45,34,56,`
 
-// console.log(str.match(/^https?:[/]{2}\S*$/));
+console.log(str.match(/^,(\d+,){3,6}$/g ));
+
+/^,(\d+,){3,6}$/
