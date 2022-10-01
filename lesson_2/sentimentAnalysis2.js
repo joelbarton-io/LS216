@@ -35,18 +35,19 @@ let textExcerpt = 'To be or not to be-that is the question:\n' +
   'Be all my sins remembered';
 
 function sentiment(text) {
-  let positiveWords = ['fortune', 'dream', 'love', 'respect', 'patience', 'devout', 'noble', 'resolution'];
-  let negativeWords = ['die', 'heartache', 'death', 'despise', 'scorn', 'weary', 'trouble', 'oppress'];
+  let positiveRegex = /\bfortunes?\b|\bdream(s|t|ed)?\b|love(s|d)?\b|respect(s|ed)?\b|\bpatien(ce|t)?\b|\bdevout(ly)?\b|\bnobler?\b|\bresolut(e|ion)?\b/gi;
+  let negativeRegex = /\bdie(s|d)?\b|\bheartached?\b|death|despise(s|d)?\b|\bscorn(s|ed)?\b|\bweary\b|\btroubles?\b|\boppress(es|ed|or('s)?)?\b/gi;
+
   let pos = [];
   let neg = [];
   let wordList = text.toLowerCase().match(/[a-z']+/g);
 
   wordList.forEach(word => {
-    if (positiveWords.includes(word)) {
+    if (word.match(positiveRegex)) {
       pos.push(word);
     }
 
-    if (negativeWords.includes(word)) {
+    if (word.match(negativeRegex)) {
       neg.push(word);
     }
   });
@@ -79,21 +80,3 @@ function sentiment(text) {
 
 sentiment(textExcerpt);
 
-
-
-// console output
-
-// There are 5 positive words in the text.
-// Positive sentiments: fortune, dream, respect, love, resolution
-
-// There are 6 negative words in the text.
-// Negative sentiments: die, heartache, die, death, weary, death
-
-// The sentiment of the text is Negative.
-
-
-// console.log(wordMatches('hi', ['hit', 'hi','her', 'his', ]));
-// let word = 'there'
-// let regex = new RegExp(`^${word}`, 'i');
-
-// console.log(regex);
