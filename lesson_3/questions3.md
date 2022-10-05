@@ -1,0 +1,1 @@
+- how to copy over an array's object property, eg `[1, 2, '-1': 'hi']`

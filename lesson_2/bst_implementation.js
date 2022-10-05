@@ -1,7 +1,3 @@
-function p(...args) {
-  console.log(...args);
-}
-
 class Node {
   constructor(value) {
     this.value = value;
@@ -16,11 +12,11 @@ class BinarySeachTree {
   }
 
   traverse(node) {
-    if (!node) {
+    if (node) {
       return;
     }
     this.traverse(node.left);
-    p(node.value)
+    console.log('hi')
     this.traverse(node.right);
   }
 
@@ -99,6 +95,8 @@ class BinarySeachTree {
 const myBST = new BinarySeachTree();
 const data = [50, 25, 75, 10, 33, 56, 89, 4, 11, 30, 40, 52, 61, 82, 95];
 data.forEach((val) => myBST.insert(val));
+
+console.log(myBST.traverse(myBST))
 /*
 let searchValue = 95;
 
