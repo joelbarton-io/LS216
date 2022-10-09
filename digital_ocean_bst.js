@@ -45,9 +45,9 @@ class BST {
     function traverse(node) {
       if (node === null) return; // base case
 
-      traverse(node.left); // recursively
-      visited.push(node.val);
-      traverse(node.right);
+      traverse(node.left); // call Fn with node's LEFT child
+      visited.push(node.val); // visitation operation
+      traverse(node.right); // call Fn with node's RIGHT child
     };
 
     traverse(current);
@@ -58,9 +58,10 @@ class BST {
     let visited = [],
         current = this.root;
 
-    let traverse = node => {
-      if (node.left) traverse(node.left);
-      if (node.right) traverse(node.right);
+    function traverse(node) {
+      if (node === null) return;
+      traverse(node.left);
+      traverse(node.right);
       visited.push(node.val);
     };
 
@@ -72,10 +73,12 @@ class BST {
     let visited = [],
         current = this.root;
 
-    let traverse = node => {
+    function traverse(node) {
+      if (node === null) return;
+
       visited.push(node.val);
-      if (node.left) traverse(node.left);
-      if (node.right) traverse(node.right);
+      traverse(node.left);
+      traverse(node.right);
     };
 
     traverse(current);
@@ -85,7 +88,7 @@ class BST {
 
 const tree = new BST();
 
-tree.create(20); // root
+tree.create(20);
 tree.create(14);
 tree.create(57);
 tree.create(9);

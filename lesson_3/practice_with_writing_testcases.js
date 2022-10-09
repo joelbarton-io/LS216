@@ -64,37 +64,61 @@
 // compareVersions('1.0.0', '1.1') // < - diff lengths, diff value
 // compareVersions('1.0', '1.0.5') // < - diff lengths, diff value
 
-function compareVersions(one, two) {
-  if (one.match(/[^0-9\.]/) || two.match(/[^0-9\.]/)) {
+// function compareVersions(one, two) {
+//   if (one.match(/[^0-9\.]/) || two.match(/[^0-9\.]/)) {
+//     return null;
+//   }
+//   if (one[0] === '.' || one[one.length - 1] === '.' || two[0] === '.' || two[two.length - 1] === '.') {
+//     return null;
+//   }
+//   for (let index = 0; index < one.length; index += 1) {
+//     if (one[index] === '.' && one[index + 1] === '.') {
+//       return null;
+//     }
+//   }
+
+//   for (let jindex = 0; jindex < two.length; jindex += 1) {
+//     if (two[jindex] === '.' && two[jindex + 1] === '.') {
+//       return null;
+//     }
+//   }
+
+//   const arrOne = one.split('.');
+//   const arrTwo = two.split('.');
+
+//   if (arrOne.length < arrTwo.length) {
+//     let diff = arrTwo.length - arrOne.length;
+//     let arr = [];
+//     arr.length = diff;
+//     arr.fill(0)
+//     arrOne.push(...a);
+//   } else if (arrOne.length > arrTwo.length) {
+//     let diff = arrOne.length - arrTwo.length;
+//   }
+// }
+
+function compareVersions(versionA, versionB) {
+  let validChars = /^[0-9]+(\.[0-9]+)*$/;
+
+  if (!validChars.test(versionA) || !validChars.test(versionB)) {
     return null;
   }
-  if (one[0] === '.' || one[one.length - 1] === '.' || two[0] === '.' || two[two.length - 1] === '.') {
-    return null;
-  }
-  for (let index = 0; index < one.length; index += 1) {
-    if (one[index] === '.' && one[index + 1] === '.') {
-      return null;
+
+  let aParts = versionA.split('.').map(Number);
+  let bParts = versionB.split('.').map(Number);
+
+  for (let i = 0; i < aParts.length; i += 1) {
+    let aValue = aParts[i] || 0;
+    let bValue = bParts[i] || 0;
+
+    if (aValue > bValue) {
+      return 1;
+    } else if (aValue < bValue) {
+      return -1;
     }
   }
 
-  for (let jindex = 0; jindex < two.length; jindex += 1) {
-    if (two[jindex] === '.' && two[jindex + 1] === '.') {
-      return null;
-    }
-  }
-
-  const arrOne = one.split('.');
-  const arrTwo = two.split('.');
-
-  if (arrOne.length < arrTwo.length) {
-    let diff = arrTwo.length - arrOne.length;
-    let arr = [];
-    arr.length = diff;
-    arr.fill(0)
-    arrOne.push(...a);
-  } else if (arrOne.length > arrTwo.length) {
-    let diff = arrOne.length - arrTwo.length;
-  }
+  return 0;
 }
 
 console.log(compareVersions('1', '1'));            // 0
