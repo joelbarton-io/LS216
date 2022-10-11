@@ -1,11 +1,12 @@
 /* understanding the problem part 1
 ---------------------------------------------------------------
-
-terms:
-requirements:
 input:
+
 output:
+
 test cases:
+
+requirements:
 
 ---------------------------------------------------------------
 */

@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/digital_ocean_bst.js"
+      "program": "${workspaceFolder}/5.js"
     }
   ]
 }
