@@ -1,1 +1,1 @@
-`^\s*$` : checks if a string contains only empty spaces
+`/^\s*$/g` : checks if a string contains only empty spaces
