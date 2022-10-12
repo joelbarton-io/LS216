@@ -4,3 +4,4 @@
 
 - log out every new change to ensure things are working as expected before you continue
 
+- INTERESTING BEHAVIOUR WITH `myObj.hasOwnProperty(myProp)` vs myObj[myProp] in a conditional statement

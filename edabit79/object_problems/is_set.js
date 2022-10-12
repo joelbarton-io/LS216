@@ -15,7 +15,6 @@ Shapes: squiggle, oval, diamond
 Here, a set is represented by an array containing three cards. Each card is represented by an object of properties and values. Write a function that determines whether three cards constitute a valid set.
 */
 
-
 /* questioning (interrogate the problem & interviewer; establish the rules)
 ---------------------------------------------------------------
 

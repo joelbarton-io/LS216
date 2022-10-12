@@ -1,3 +1,7 @@
+// INTERESTING BEHAVIOUR WITH `myObj.hasOwnProperty(myProp)` vs myObj[myProp] in a conditional
+// https://edabit.com/challenge/JyebLWZjCv5jYhrBW
+
+
 /* questioning (interrogate the problem & interviewer; establish the rules)
 ---------------------------------------------------------------
 questions:
