@@ -1,40 +1,44 @@
-/* understanding the problem part 1
+/* questioning (interrogate the problem & interviewer; establish the rules)
 ---------------------------------------------------------------
 
 terms:
-requirements:
 input:
 output:
-test cases:
+center case:
+edge case:
+
+RULES:
 
 ---------------------------------------------------------------
 */
-/* understanding the problem part 2
+/* outlining (validate assumptions)
 ---------------------------------------------------------------
 
-roadmap for P.O.D.:
+rephrase: ...""...
 
-in my own words...
-  ...""...
+roadmap:
 
+exploration:
 
 ---------------------------------------------------------------
 */
-/* steps
+/* steps (establishing MM & flow of data from input to output)
 ---------------------------------------------------------------
 
 mental model:
 
-abstract algo & method exploration:
+abstract algo :
 
-(revisit 'requirements' & as add more test cases as needed)
+revisit 'RULES' & add more test cases (as needed)
+
 ---------------------------------------------------------------
 */
-/* testing
+/* dry run for algo; (rubber duck phase)
 ---------------------------------------------------------------
 
-step through with 3 examples
+step through algo with examples from center and and edge cases
 
 implement with code
+
 ---------------------------------------------------------------
 */
