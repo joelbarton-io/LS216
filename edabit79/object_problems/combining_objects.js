@@ -100,7 +100,7 @@ function combine(husband, wife) {
     }
   })
 
-  let resultEntries = Object.entries(result).sort((a, b) => a[1] - b[1]);
+  let resultEntries = Object.entries(result).sort(([, a], [, b]) => b - a);
   result = Object.fromEntries(resultEntries);
   return result;
 }
