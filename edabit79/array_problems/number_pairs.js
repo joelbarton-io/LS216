@@ -118,10 +118,11 @@ function numberPairs(input) {
       pairs += 1;
       count -= 2;
     }
-  })
+  });
 
   return pairs;
 }
+
 // center cases:
 console.log(numberPairs("7 1 2 1 2 1 3 2")) // 2 (odd number of elements)
 console.log(numberPairs("7  1 2 1  2 1 3  2")) // 2 -> .split(/[\s]+/)
@@ -136,6 +137,7 @@ console.log(numberPairs("3 NaN NaN NaN")) // 1
 console.log(numberPairs("4 NaN NaN NaN Infinity")) // 1
 console.log(numberPairs("4 NaN NaN Infinity Infinity")) // 2
 console.log(numberPairs("4 NaN NaN Infinity -Infinity")) // 1
+
 // edge cases:
 console.log(numberPairs("0")) // invalid
 console.log(numberPairs("")) // invalid
