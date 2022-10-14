@@ -1,14 +1,13 @@
 /* questioning (interrogate the problem & interviewer; establish the rules)
 ---------------------------------------------------------------
 
-terms:
 input:
 output:
-center case:
-edge case:
 
 RULES:
 
+center case:
+edge case:
 ---------------------------------------------------------------
 */
 /* outlining (validate assumptions)
@@ -17,8 +16,6 @@ RULES:
 rephrase: ...""...
 
 roadmap:
-
-exploration:
 
 ---------------------------------------------------------------
 */
