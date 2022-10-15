@@ -8,4 +8,7 @@
 
 - HOW DOES `Object.fromEntries(entries)` work when dealing with a 'sorted' array?
 
-- how to transform an array into a set of subarrays of length `n`... array of `n` subarrays 
+- how to transform an array into a set of subarrays of length `n`... array of `n` subarrays
+
+- knowing 'when to stop' an iteration over some array or string (end conditions)
+

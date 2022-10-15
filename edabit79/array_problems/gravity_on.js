@@ -71,6 +71,7 @@ implement with code
 function switchGravityOn(matrix) {
   let columnHeight = matrix[0].length;
   const arrayOfColumnArrays = [];
+
   for (let i = 0; i < columnHeight; i++) {
     arrayOfColumnArrays.push([]);
   }
@@ -82,8 +83,8 @@ function switchGravityOn(matrix) {
   });
 
   const gravityApplied = arrayOfColumnArrays.map(column => column.sort().reverse());
-  const arrayOfRowArrays = [];
   let rowLength = gravityApplied[0].length;
+  const arrayOfRowArrays = [];
 
   for (let i = 0; i < rowLength; i++) {
     arrayOfRowArrays.push([]);
@@ -104,7 +105,7 @@ console.log(switchGravityOn(
   ["-", "-", "-", "-"],
   ["-", "-", "-", "-"],
   ["-", "-", "-", "-"]
-]
+ ]
 ));
 
 /* [
