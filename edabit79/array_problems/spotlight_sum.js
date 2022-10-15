@@ -1,11 +1,3 @@
-/* function convert(num, index, arr) {
-  // console.log(num, index, arr);
-  return String(num * arr.length ** index);
-}
-
-const transformedArray = [1, 2, 3].map(convert);
-console.log(transformedArray);
- */
 /* Given a grid of numbers, return a grid of the Spotlight Sum of each number.
 The spotlight sum can be defined as the total of all numbers immediately surrounding
 the number on the grid, including the number in the total. */
@@ -106,34 +98,29 @@ implement with code
 */
 
 function spotlightMap(rows) {
-	if (rows.length === 0) return [];
-  if (rows[0].length === 0) return [[]];
-
   const rowLength = rows[0].length - 1;
   const rowCount = rows.length - 1;
-  const main = [];
 
   rows.forEach((row, rowIdx) => {
-    const newRow = [];
-
     row.forEach((num, numIdx) => {
       let currSum = num;
 
-      if (hasLeft(numIdx)) currSum += row[numIdx - 1];
-      if (hasRight(numIdx, rowLength)) currSum += row[numIdx + 1];
-      if (hasUp(rowIdx)) currSum += rows[rowIdx - 1][numIdx];
-      if (hasDown(rowIdx, rowCount)) currSum += rows[rowIdx + 1][numIdx];
-      if (hasLeft(numIdx) && hasUp(rowIdx)) currSum += rows[rowIdx - 1][numIdx - 1];
-      if (hasLeft(numIdx) && hasDown(rowIdx, rowCount)) currSum += rows[rowIdx + 1][numIdx - 1];
-      if (hasRight(numIdx, rowLength) && hasUp(rowIdx)) currSum += rows[rowIdx - 1][numIdx + 1];
-      if (hasRight(numIdx, rowLength) && hasDown(rowIdx, rowCount)) currSum += rows[rowIdx + 1][numIdx + 1];
+      if (hasLeft(numIdx)) {
+        currSum += row[numIdx - 1];
+      }
 
-      newRow.push(currSum);
+      if (hasRight(numIdx, rowLength)) {
+        currSum += row[numIdx - 1];
+      }
+      /*
+      if (hasRight)
+        currSum += SUB[subCurrIdx + 1];
+      if (hasUp)
+        currSum += MAIN[subCurrIdx - 1][mainCurrIdx - 1];
+      if (hasDown)
+        currSum += MAIN[subCurrIdx + 1][mainCurrIdx - 1]; */
     });
-    main.push(newRow);
   });
-
-  return main;
 }
 
 function hasDown(rowIdx, rowCount) {
@@ -145,23 +132,36 @@ function hasUp(rowIdx) {
   return rowIdx > 0;
 }
 
-function hasLeft(numIdx) {
-  return numIdx > 0;
+function hasLeft(currentElementIndex) {
+  return currentElementIndex > 0;
 }
 
-function hasRight(numIdx, rowLength) {
-  // number of elements in the current row
-  return numIdx < rowLength;
+function hasRight(currentElementIndex, rowLength) {
+  // number of elements in row
+  return currentElementIndex < rowLength;
 }
 
 console.log(
   spotlightMap([
     [1, 2, 3],
-    [4, 5, 6],
+    [4, 5, 6], // subCurrIdx = 0, mainCurrIdx = 0
     [7, 8, 9],
   ])
-);
-
-/* [12, 21, 16],
+); /* ➞ [
+  [12, 21, 16],
   [27, 45, 33],
-  [24, 39, 28] */
+  [24, 39, 28]
+] */
+/*
+console.log(
+  spotlightMap([
+    [2, 6, 1, 3, 7],
+    [8, 5, 9, 4, 0],
+  ])
+); /* ➞ [
+  [21, 31, 28, 24, 14],
+  [21, 31, 28, 24, 14]
+] */
+
+/* console.log(spotlightMap([[3]]));
+ */
