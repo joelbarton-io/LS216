@@ -1,4 +1,4 @@
-/* FORGOT TO ASK ABOUT THE VALUES IN THE OBJECTS; can be undefined */
+/* FORGOT TO ASK ABOUT THE VALUES IN THE OBJECTS; can technically be undefined or any other non-int datatype*/
 /*
 Q:
 0: will the input always be an array? YES
