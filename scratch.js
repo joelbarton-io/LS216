@@ -120,12 +120,19 @@ function spotlightMap(rows) {
       let currSum = num;
 
       if (hasLeft(numIdx)) currSum += row[numIdx - 1];
+
       if (hasRight(numIdx, rowLength)) currSum += row[numIdx + 1];
+
       if (hasUp(rowIdx)) currSum += rows[rowIdx - 1][numIdx];
+
       if (hasDown(rowIdx, rowCount)) currSum += rows[rowIdx + 1][numIdx];
+
       if (hasLeft(numIdx) && hasUp(rowIdx)) currSum += rows[rowIdx - 1][numIdx - 1];
+
       if (hasLeft(numIdx) && hasDown(rowIdx, rowCount)) currSum += rows[rowIdx + 1][numIdx - 1];
+
       if (hasRight(numIdx, rowLength) && hasUp(rowIdx)) currSum += rows[rowIdx - 1][numIdx + 1];
+
       if (hasRight(numIdx, rowLength) && hasDown(rowIdx, rowCount)) currSum += rows[rowIdx + 1][numIdx + 1];
 
       newRow.push(currSum);

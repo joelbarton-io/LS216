@@ -3,7 +3,7 @@ function ascending(input) {
 
   const count = (input.length % 2 === 0) ? input.length / 2 : (input.length - 1) / 2;
   const allChunks = getChunks(count, input);
-  const result =[];
+  const result = [];
 
   for (let i = 0; i < allChunks.length; i++) {
     const chunk = allChunks[i];
@@ -19,7 +19,7 @@ function ascending(input) {
 function getChunks(count, input) {
   const allChunks = [];
 
-  // 
+  //
   for (let chkLeng = 1; chkLeng <= count; chkLeng++) {
     const chunks = [];
 
