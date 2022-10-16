@@ -12,3 +12,4 @@
 
 - knowing 'when to stop' an iteration over some array or string (end conditions)
 
+- what to do if an object property is explicitly `undefined`??? `{a: undefined}`

@@ -6,14 +6,13 @@ output:
 
 RULES:
 
-center case:
-edge case:
+edge cases:
 ---------------------------------------------------------------
 */
 /* outlining (validate assumptions)
 ---------------------------------------------------------------
 
-rephrase: ...""...
+mental model:
 
 roadmap:
 
