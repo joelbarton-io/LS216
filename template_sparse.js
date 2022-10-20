@@ -1,13 +1,17 @@
-/* input:
+/*
+input:
 output:
-RULES:
-edge cases:
+
+questions/clarifications:
+
+
+core path rules:
+
+
 
 mental model:
-roadmap:
 
 
-mental model:
 abstract algo :
 
 dry run:

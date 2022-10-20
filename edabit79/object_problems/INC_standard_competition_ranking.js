@@ -102,29 +102,30 @@ function competition_rank(hash, playerName) {
 
   const entries = Object.entries(hash).map(([key, val]) => [key, Number.parseInt(val)]).sort(([, a], [, b]) => b - a);
 
-  const ranked = {};
-  let tempTie;
 
+  const arr = [];
   for (let rank = 0; rank < entries.length; rank++) {
-    if (Object.entries(ranked).length === 0) { // for the first pass
-      ranked[entries[0][0]] = rank + 1;
+    if (rank === 0) {
+      arr.push(true);
       continue;
     }
-    const prev = entries[rank - 1];
-    const curr = entries[rank];
-
-    if (prev[1] === curr[1]) { // tie
-      tempTie = rank;
-      ranked[curr[0]] = tempTie;
-    } else {
-      ranked[curr[0]] = rank;
+    const prev = entries[rank - 1][1];
+    const curr = entries[rank][1];
+    if (curr === prev) {
+      arr.push(false);
+      continue;
     }
-
-
-
+    arr.push(true);
   }
 
-  return ranked;
+  const ranked = {};
+  arr.forEach((bool, i) => {
+    if (bool) {
+
+    } else {
+      
+    }
+  })
 }
 
 console.log(competition_rank({
