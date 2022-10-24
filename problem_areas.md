@@ -13,3 +13,26 @@
 - knowing 'when to stop' an iteration over some array or string (end conditions)
 
 - what to do if an object property is explicitly `undefined`??? `{a: undefined}`
+
+- checking if a property exists in an object and that properties value is falsy, like:
+``` javascript
+obj = { a: 1, b: 2, c: 3, d: 0 };
+
+if (obj.d) {
+  console.log('found');
+} else {
+  console.log('missing');
+}
+// > 'missing'
+```
+
+``` javascript
+obj = { a: 1, b: 2, c: 3, d: undefined };
+
+if (obj.hasOwnProperty(d) {
+  console.log('found');
+} else {
+  console.log('missing');
+}
+// > 'missing'
+```

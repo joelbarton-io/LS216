@@ -64,7 +64,7 @@ HELPER
 
 function helper(prev, curr) { //
   const firstLetter = curr[0];
-  const index = prev.lastIndexOf(firstLetter); // doesn't work with duplicates
+  const index = prev.lastIndexOf(firstLetter); // doesn't work with duplicates (refactor)
   const overlap = prev.slice(index);
   const leng = overlap.length;
 
@@ -95,13 +95,13 @@ function join(arr) {
   return [arr[arr.length -1], Math.min(...overlapCount)]
 }
 
-// console.log(helper("oven", "envier"))
+console.log(helper("oven", "envier"))
 
 console.log(join(["oven", "envier", "erase", "serious"])) // ["ovenvieraserious", 2]
 console.log(join(["move", "over", "very"])) // ["movery", 3]
 console.log(join(["to", "ops", "psy", "syllable"])) // ["topsyllable", 1]
 console.log(join(["aaa", "bbb", "ccc", "ddd"])) // ["aaabbbcccddd", 0]
-console.log(join(['111  ', '  1222', '222'])) // ['11122222', 1]
+console.log(join(['111  ', '  1222', '222'])) // ['11122222', 1] FAILS THIS CASE
 console.log(join(['&&&', '$$$'])) // ['&&&$$$', 0]
 console.log(join(['&&&'])) // ['&&&', 0]
 console.log(join([])) // ['', 0]
