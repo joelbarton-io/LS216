@@ -1,18 +1,20 @@
 /*
-input:
-output:
 
-questions/clarifications:
+?:
 
 
-core path rules:
+in:
+out:
 
+
+rules:
 
 
 mental model:
 
 
-abstract algo :
+abstract:
 
-dry run:
+
+code:
 */

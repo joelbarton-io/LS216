@@ -79,19 +79,38 @@ function getObject(input) {
     return isNaN(Number(val.marks)) || Number(val.marks) === Infinity || Number(val.marks) === -Infinity;
   })) return 'Invalid marks value (NaN or +/- Infinity detected)';
 
-  const KEYS = Object.keys(input);
-  const storage = [];
-  const sorted = Object.values(input).sort((a, b) => b.marks - a.marks);
+  const ENTRIES = Object.entries(input);
+
+  return ENTRIES.reduce((acc, curr) => {
+
+  }, {});
 
 }
 
-// Examples
-console.log(getObject({
+
+
+const input = {
   "0": { age: 18, name: "john", marks: "400" },
   "1": { age: 17, name: "julie", marks: "400" },
   "2": { age: 16, name: "Robin", marks: "200" },
   "3": { age: 16, name: "Bella", marks: "300" }
-}))
+}
+const list = Object.values(input);
+const set = new Set(list.map(obj => obj.marks)).values();
+const arr = [...set];
+
+arr.map(el => {
+  
+});
+
+console.table();
+// Examples
+/* console.log(getObject({
+  "0": { age: 18, name: "john", marks: "400" },
+  "1": { age: 17, name: "julie", marks: "400" },
+  "2": { age: 16, name: "Robin", marks: "200" },
+  "3": { age: 16, name: "Bella", marks: "300" }
+})) */
 
 /* ➞ {
   "0": { age: 18, name: "john", marks: "400" },
@@ -100,12 +119,12 @@ console.log(getObject({
 }
 */
 
-console.log(getObject({
+/* console.log(getObject({
   "0": { age: 17, name: "john", marks: "400" }, // same marks and age so take first encountered
   "1": { age: 17, name: "julie", marks: "400" },
   "2": { age: 16, name: "Robin", marks: "200" },
   "3": { age: 16, name: "Bella", marks: "300" }
-}))
+})) */
 
 /* ➞ {
   "0": { age: 18, name: "john", marks: "400" },
@@ -114,14 +133,14 @@ console.log(getObject({
 }
 */
 
-console.log(getObject({
+/* console.log(getObject({
   0: {age: 18, name: 'john', marks: '400'},
   1: {age: 17, name: 'julie', marks: '400'},
   2: {age: 16, name: 'Robin', marks: '200'},
   3: {age: 16, name: 'Bella', marks: '300'},
   4: {age: 16, name: 'john', marks: '250'},
   5: {age: 15, name: 'julie', marks: '250'}
-}))
+})) */
 /* ➞    {
   0: {age: 18, name: 'john', marks: '400'},
   1: {age: 16, name: 'Robin', marks: '200'},
@@ -129,12 +148,12 @@ console.log(getObject({
   3: {age: 16, name: 'john', marks: '250'}
  */
 
-console.log(getObject({
+/* console.log(getObject({
   "0": { age: '18', name: "john", marks: "400" },
   "1": { age: 17, name: "julie", marks: "400" },
   "2": { age: 16, name: "Robin", marks: "200" },
   "3": { age: 16, name: "Bella", marks: "300" },
-}))
+})) */
 /* ➞ {
   "0": { age: 18, name: "john", marks: "400" },
   "1": { age: 16, name: "Robin", marks: "200" },
