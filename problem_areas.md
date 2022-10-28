@@ -46,3 +46,9 @@ if (obj.hasOwnProperty(d) {
 
 - AVOID:
   - using `delete` on array objects as it deletes the element at the specified index but preserves the array's length and leaves an empty slot.  Only use `delete` on NON-iterable objects (just normal objects)
+
+  - using `fill()` with non-primitive data types
+
+  - using `JSON.stringify(obj)` to compare two objects unless you can guarantee the keys were added in the same order for each object
+
+  -

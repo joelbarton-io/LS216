@@ -181,3 +181,8 @@ for (const elem of arr) {
  */
 
 // cannot use a letter more than once version:
+
+const arr = [1, 2, 3];
+const copy = arr.slice();
+
+console.log(arr == copy);

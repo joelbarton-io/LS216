@@ -3,18 +3,25 @@
 ?:
 
 
-in:
-out:
+input:
+output:
 
 
-rules:
+rules of the problem (validate with test-cases):
 
 
-mental model:
+
+abstract data-flow:
 
 
-abstract:
+
+mental model/sub-problems:
 
 
-code:
+
+
+steps:
+
+
+
 */
