@@ -36,3 +36,13 @@ if (obj.hasOwnProperty(d) {
 }
 // > 'missing'
 ```
+
+- `sort` MUTATES the array in place; always be careful with `sort`
+
+- regex
+
+
+
+
+- AVOID:
+  - using `delete` on array objects as it deletes the element at the specified index but preserves the array's length and leaves an empty slot.  Only use `delete` on NON-iterable objects (just normal objects)
