@@ -1,3 +1,9 @@
+## `String` methods:
+
+- `indexOf(str, startingIdx)`, `lastIndexOf()`, `replace()`, `split()`, `slice()`, `substring()`, `toUpperCase()`, `toLowerCase()`, `toString()`, `endsWith()`
+
+## General observations:
+
 - if `match` doesn't come up with a match, it returns `null`, this can be an issue if we are expecting an array value
 
 - `/^\s*$/g` : checks if a string contains only empty spaces
@@ -14,11 +20,14 @@
 
 - what to do if an object property is explicitly `undefined`??? `{a: undefined}`
 
-- checking if a property exists in an object and that properties value is falsy, like:
+- checking if a property exists in an object and that properties value is falsy,
+- a possible solution would be to convert the object into a list of keys and check if the desired key is present
+- like:
+
 ``` javascript
 obj = { a: 1, b: 2, c: 3, d: 0 };
 
-if (obj.d) {
+if (Object.keys().includes('d') {
   console.log('found');
 } else {
   console.log('missing');
@@ -36,6 +45,7 @@ if (obj.hasOwnProperty(d) {
 }
 // > 'missing'
 ```
+
 
 - `sort` MUTATES the array in place; always be careful with `sort`
 

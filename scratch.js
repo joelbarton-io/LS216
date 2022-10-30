@@ -182,7 +182,51 @@ for (const elem of arr) {
 
 // cannot use a letter more than once version:
 
-const arr = [1, 2, 3];
-const copy = arr.slice();
 
-console.log(arr == copy);
+
+
+
+/* let firstName = 'Joel';
+let lastName = 'Barton';
+let fullName = firstName.concat(' ', lastName);
+
+let language = 'Javascript';
+// let language = '_a_a___a__';
+
+let idx = language.lastIndexOf('a', 2);
+console.log(language.lastIndexOf('a', 4));
+console.log(language.lastIndexOf('a', 7));
+
+let chrCode = language.charCodeAt(idx);
+let strFromCode = String.fromCharCode(chrCode);
+let indexLastA = language.lastIndexOf('a');
+
+let a = 'a';
+let b = 'b';
+b = b.toUpperCase();
+
+let aIndex = language.indexOf('a');
+let vIndex = language.indexOf('v');
+
+
+let fact1 = 'Javascript is fun';
+let fact2 = 'Kids like it too';
+
+let compound = fact1.concat(' and ', fact2.toLowerCase());
+
+// console.log(fact1[0], fact2.charAt(0));
+
+let pi = (22/7).toString();
+let boxNumber = typeof String(Number.parseInt(356..toString()));
+
+console.log(boxNumber);
+
+let str = 's sand cats cast Mississippi S KANSAS';
+
+
+console.log(str.match(/[$]/));
+
+*/
+
+const myRegex = /.\d{3}./g;
+const other = /Lorem/;

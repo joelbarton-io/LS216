@@ -12,11 +12,11 @@ rules of the problem (validate with test-cases):
 
 
 
-abstract data-flow:
+shape of the problem:
 
 
 
-mental model/identify sub-problems:
+identify sub-problems:
 
 
 
