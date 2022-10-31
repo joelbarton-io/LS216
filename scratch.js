@@ -227,6 +227,14 @@ let str = 's sand cats cast Mississippi S KANSAS';
 console.log(str.match(/[$]/));
 
 */
+/*
+let regx1 = /[:word:]/g;
+let regx2 = /[\[:alpha\]]/g;
+let regx3 = /[a-z]/gi; */
+// let anyFullLineEndingWith = /^.*\?$/gm;
 
-const myRegex = /.\d{3}./g;
-const other = /Lorem/;
+// let wordAtEndOfLine = /\S+$/gmi;
+
+
+let myRegExp = /(((\d+,){2}\d+)|((\d,){5,}\d+))$/g;
+console.log('his is ish'.match(myRegExp).length);
