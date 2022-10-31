@@ -119,6 +119,4 @@ console.log(rearrange("is Thi1s T2est a"));// ➞ ERROR
 
 
 
-
-
 // ~> 50:30
