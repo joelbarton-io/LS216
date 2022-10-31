@@ -236,5 +236,10 @@ let regx3 = /[a-z]/gi; */
 // let wordAtEndOfLine = /\S+$/gmi;
 
 
-let myRegExp = /(((\d+,){2}\d+)|((\d,){5,}\d+))$/g;
-console.log('his is ish'.match(myRegExp).length);
+let text = "111a 222e 333i 444o 555u 111v 222w 333x 444y 555z"
+let myRegExp = /(\b\d{3}[aeiou]\b)/gi;
+let info = text.match(myRegExp);
+
+if (info) {
+  console.log(info)
+}

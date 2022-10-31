@@ -81,8 +81,9 @@ function rearrange(input) {
   const sortedEntries = Object.entries(wordsHash).sort(([,a], [,b]) => a - b);
 
   if (!allConsecutiveAscending(sortedEntries)) return ERR;
-  return sortedEntries.map(arr => arr[0]).join(' ');
+  return sortedEntries.map(arr => arr[0].replace(/\d+/, '')).join(' ');
 }
+
 function allConsecutiveAscending(sortedEntries) {
   for (let i = 1; i < sortedEntries.length; i++) {
     const prevNum = Number(sortedEntries[i - 1][1]);
@@ -95,15 +96,14 @@ function allConsecutiveAscending(sortedEntries) {
 
 function makeHash(cleanInput) {
   return cleanInput.split(' ').reduce((acc, curr) => {
-    let cleanKey = curr.replace(/\d/g, '');
     if (!acc[curr]) {
-      acc[cleanKey] = curr.match(/\d+/)[0];
+      acc[curr] = curr.match(/\d+/)[0];
       return acc;
     }
   }, {});
 }
 
-console.log(rearrange("is2 Thi1s T4est 3a"));// ➞ "This is a Test"
+/* console.log(rearrange("is2 Thi1s T4est 3a"));// ➞ "This is a Test"
 console.log(rearrange("    as1d     "));// ➞ 'asd'
 console.log(rearrange("is2 Thi1s2 T4es0t 3a"));// ➞ "This is a Test"
 console.log(rearrange("is2 Thi1s T5est 3a"));// ➞ ERROR
@@ -117,6 +117,6 @@ console.log(rearrange("2 1 4 3"));// ➞ ERROR
 console.log(rearrange("2a 1 4 c3"));// ➞ ERROR
 console.log(rearrange("is Thi1s T2est a"));// ➞ ERROR
 
-
-
+ */
+console.log(rearrange("4of Fo1r pe6ople g3ood th5e the2"))
 // ~> 50:30
