@@ -1,0 +1,12 @@
+
++
+.good questions; this is a problem that has a lot of potential depth when it comes to subtle details
+.very nice pedac process
+.nice reasoning with the test cases
+.nice reflexivity
+
+-
+.missed asking the question re: each word containing either numbers or 'word' characters
+.always test code and regex!
+.always declare variables with `let` or `const`
+

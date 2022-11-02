@@ -60,13 +60,44 @@ function productPair(arr, k) {
   const ERR = 'ERROR';
   const INVALID_NUMBERS = [NaN, Infinity, -Infinity];
 
+  const invalid_num = candidate => INVALID_NUMBERS.includes(candidate);
+  const not_num = candidate => typeof candidate !== 'number';
+
   if (typeof k !== 'number' || !Array.isArray(arr)) return ERR;
   if (k > arr.length) return null;
   if (k < 1 || arr.length === 0) return ERR;
-  if (arr.some(candidate => typeof candidate !== 'number')) return ERR;
-  if (arr.some(candidate => INVALID_NUMBERS.includes(candidate))) return ERR;
+  if (arr.some(not_num)) return ERR;
+  if (arr.some(invalid_num)) return ERR;
 
-  const sortedArr = arr.sort();
+  /*
+  need:
+    - all possible permutations of length k from input arr
+    - for each permutation, need to get product for the subarr
+    - get min/max
+  */
+
+  const allPairs = (arr, num) => {
+    const res = [];
+
+    if (num === 0){
+      return [[]];
+    }
+
+    const subResult = allPairs(arr, num - 1);
+
+    for (let el of arr){
+      for (let sub of subResult){
+        res.push([el].concat(sub));
+      }
+    }
+
+    return res;
+  }
+
+  const allProducts = allPairs(arr, k).map(set => set.reduce((a, c) => a * c));
+
+  return [Math.min(...allProducts), Math.max(...allProducts)];
+/*   const sortedArr = arr.sort();
   let minVal;
   let maxVals;
 
@@ -74,7 +105,7 @@ function productPair(arr, k) {
     minVal = sortedArr[0];
     return [minVal, sortedArr[sortedArr.length - 1]];
   }
-  
+
   const sliceForMin = arr.length - (k - 1);
   const sliceForMax = arr.length - k;
 
@@ -83,11 +114,23 @@ function productPair(arr, k) {
 
   let min = minVal * sortedArr.slice(sliceForMin).reduce((a, c) => a * c);
   let max = sortedArr.slice(sliceForMax).reduce((a, c) => a * c);
-  return [min, max];
+  return [min, max]; */
 
 }
-console.log(productPair([5, 4, 3, 3, 6], 2), [9, 30]);
+// console.log(productPair([5, 4, 3, 3, 6], 2), [9, 30]);
 
+
+
+/*
+k = 2
+[5, 4, 3, 3, 6]
+
+
+[5, 4]
+[5, 3]
+[5, 3]
+[5, 6]
+*/
 /*
 console.log(productPair()); // ERROR
 console.log(productPair([1, 2])); // ERROR
@@ -112,3 +155,36 @@ console.log(productPair([1, 2, 3, -4], 3)); // [-24, 6]
  */
 
 // ~> 37:27 (didn't pass the edabit cases);
+
+
+
+/* const arr = [5, 4, 3, 3, 6];
+const num = 2;
+
+const allPairs = (arr, num) => {
+  const res = [];
+  if (num === 0){
+    return [[]];
+  }
+  const subResult = allPairs(arr, num - 1);
+
+  for (let el of arr){
+    for (let sub of subResult){
+      res.push([el].concat(sub));
+    }
+  }
+
+  return res;
+}
+console.log(allPairs(arr, num)); */
+// console.log(permutator([5, 4, 3, 3, 6]))
+
+function getSubarrays(arr){
+  return arr.reduce((subsets, value) => {
+    return subsets.concat(subsets.map(set => {
+      return [value, ...set];
+    }))
+  }, [[]])
+}
+
+console.log(getSubarrays([5, 4, 3, 3, 6]))

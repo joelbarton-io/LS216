@@ -236,10 +236,36 @@ let regx3 = /[a-z]/gi; */
 // let wordAtEndOfLine = /\S+$/gmi;
 
 
-let text = "111a 222e 333i 444o 555u 111v 222w 333x 444y 555z"
-let myRegExp = /(\b\d{3}[aeiou]\b)/gi;
+/* let text = "111a 222e 333i 444o 555u 111v 222w 333x 444y 555z"
+
 let info = text.match(myRegExp);
 
 if (info) {
   console.log(info)
 }
+ */
+/*
+const arr = [5, 4, 3, 3, 6];
+const num = 2;
+
+const allPairs = (arr, num) => {
+  const res = [];
+  if (num === 0){
+    return [[]];
+  }
+  const subResult = allPairs(arr, num - 1);
+
+  for (let el of arr){
+    for (let sub of subResult){
+      res.push([el].concat(sub));
+    }
+  }
+
+  return res;
+}
+console.log(all
+
+  let myRegExp = /(\b\d{3}[aeiou]\b)/gi;
+   */
+
+  

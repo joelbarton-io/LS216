@@ -120,3 +120,5 @@ console.log(rearrange("is Thi1s T2est a"));// ➞ ERROR
  */
 console.log(rearrange("4of Fo1r pe6ople g3ood th5e the2"))
 // ~> 50:30
+
+'stri2n3g'.match(/\d/)
