@@ -1,18 +1,20 @@
 function hashFromArray(arr) {
-  return arr.reduce((acc, cv) => {
-    // optionally, standardize element class...
-    // cv = Boolean(cv);
-    // cv = Number(cv);
-    // cv = String(cv);
+  return arr.reduce(callback, new Object());
+}
 
-    if (acc[cv]) {
-      acc[cv]++;
-      return acc;
-    }
+function callback(acc, cv) {
+  // optionally, standardize element class...
+  // cv = Boolean(cv);
+  // cv = Number(cv);
+  // cv = String(cv);
 
-    acc[cv] = 1;
+  if (acc[cv]) {
+    acc[cv]++;
     return acc;
-  }, new Object());
+  }
+
+  acc[cv] = 1;
+  return acc;
 }
 
 console.log(hashFromArray([1, 2, 3, 4, 5, 5, 5, 1, 2]));

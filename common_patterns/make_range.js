@@ -1,0 +1,1 @@
+const range = Array(number).fill(true);

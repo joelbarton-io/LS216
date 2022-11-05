@@ -18,6 +18,8 @@
 
 - knowing 'when to stop' an iteration over some array or string (end conditions)
 
+- if we need to preserve the *INSERTION ORDER* for properties being added to a dictionary-type composite type, use a *MAP* object instead of a normal *OBJECT*
+
 - what to do if an object property is explicitly `undefined`??? `{a: undefined}`
 
 - checking if a property exists in an object and that properties value is falsy,

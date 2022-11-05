@@ -17,11 +17,6 @@ identify sub-problems:
 
 
 
-shape of the problem:
-
-
-
-
 steps:
 
 
