@@ -1,3 +1,6 @@
+
+
+
 /* Write the function that takes three dimensions of a brick: height(a), width(b) and depth(c) and
 returns true if this brick can fit into a hole with the width(w) and height(h).
 

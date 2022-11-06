@@ -116,8 +116,8 @@ function maxSum(arr, n) {
   subArrs.forEach(arr => {
     arr.forEach((num, idx )=> {
       result[idx].push(num);
-    })
-  })
+    });
+  });
 
   const sums =  result.map(arr => arr.reduce((a, b) => a + b));
   const columnMax = Math.max(...sums);

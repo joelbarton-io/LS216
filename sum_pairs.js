@@ -41,7 +41,7 @@ get minimum.slice(0, 2)
 
 */
 
-/* function sumPairs(ints, target) {
+function sumPairs(ints, target) {
   const ERR = "INVALID INPUT";
   const isInt = (num) => Number.isInteger(num);
   const sumToTarget = (first, second) => first + second === target;
@@ -66,13 +66,9 @@ get minimum.slice(0, 2)
   if (sumPairs.length === 0) return undefined;
 
   return sumPairs.sort(([,,a], [,,b]) => a - b)[0].slice(0, 2);
-} */
+}
 
-
-
-
-/*
-function sumPairs(ints, target) {
+/* function sumPairs(ints, target) {
   const ERR = "INVALID INPUT";
   const isInt = (num) => Number.isInteger(num);
   const sumToTarget = (first, second) => first + second === target;
@@ -88,7 +84,7 @@ function sumPairs(ints, target) {
   if (sumPairs.length === 0) return undefined;
 
   return sumPairs.sort(([,,a], [,,b]) => a - b)[0].slice(0, 2);
-}
+} */
 console.log(sumPairs([0, 2, 5, 3], 5)) // [0, 5]
 console.log(sumPairs([-1, 3, 6, 2], 5)) // [-1, 6]
 console.log(sumPairs([0, 2, 5, 7], 5)) // [0, 5]

@@ -1,0 +1,2 @@
+- did how to solve manually with example test case
+- 
