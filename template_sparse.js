@@ -1,18 +1,18 @@
 /*
-
 ?:
 
 
-input:
-output:
+-> i:
+
+<- o:
 
 
 
-rules of the problem (validate with test-cases):
+expl/impl rules (validate with test-cases):
 
 
 
-identify sub-problems:
+sub-problems:
 
 
 

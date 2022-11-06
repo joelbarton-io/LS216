@@ -54,14 +54,14 @@ arr.slice(currIdx + 1).concat([1, NaN, 3, 3, Infinity].slice(0, currIdx))
 */
 function smallerThanCurrent(nums) {
   const result = [];
-  const isSpecialNum = (num) => Number.isNaN(num) || num === Infinity || num === -Infinity;
+  const isNotSpecialNum = (num) => !(Number.isNaN(num) || num === Infinity || num === -Infinity);
 
   nums.forEach((num, idx) => {
-    if (isSpecialNum(num)) {
+    if (!isNotSpecialNum(num)) {
       result.push(null);
     } else {
       const others = nums.slice(idx + 1).concat(nums.slice(0, idx));
-      const filteredOthers = others.filter(num => !isSpecialNum(num));
+      const filteredOthers = others.filter(isNotSpecialNum);
       const uniqueOthers = [...new Set(filteredOthers)];
       const lessThanCurr = uniqueOthers.filter(el => el < num).length;
       result.push(lessThanCurr);
