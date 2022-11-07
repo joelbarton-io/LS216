@@ -3,6 +3,10 @@
 # in every third word converted to uppercase. Other characters
 # should remain the same. */
 
+// every 2nd character : every other chr staring with the chr at index 1
+
+// 'joel is coding!!! today, lets goooooo!'; // 'joel is cOdInG!!! today, lets gOooooo!';
+
 // 'Other characters should remain the same.')) // 'Other characters sHould remain the sAme.'
 // 'Other characters s1hould remain the same.')) // 'Other characters s1hould remain the sAme.'
 // 'aaa bbb c2')) // 'aaa bbb c2'
@@ -19,8 +23,6 @@
 -> i: string of 'words' or empty string
 
 <- o:
-
-
 
 expl/impl rules (validate with test-cases):
 - WORD : group of chrs separated by any number of spaces or the end/beginning of the input string itself
@@ -52,8 +54,8 @@ LOOP through WORDS by increments of 1
 return result array joined by single whitespace
 */
 
-function p(word) {
-  console.log(word);
+function p(input, ...args) {
+  console.log(input, ...args);
 }
 
 function trimLeadingTrailingWS(str) {
@@ -63,6 +65,7 @@ function trimLeadingTrailingWS(str) {
 function modify(word) {
   const divByTwo = (idx) => idx % 2 === 0;
   const chrs = word.split('');
+
   return chrs.map((chr, idx) => {
     if (divByTwo(idx + 1)) {
       return chr.toUpperCase();
@@ -91,6 +94,10 @@ function wierdCase(input) {
 
   return result.join(' ');
 }
+
+
+
+
 
 p(wierdCase({})) // ERR
 p(wierdCase('')) // ''
