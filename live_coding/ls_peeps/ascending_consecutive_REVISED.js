@@ -34,6 +34,10 @@ function getChunks(count, input) {
   return allChunks;
 }
 
+function a(input) {
+  
+}
+
 function allAscending(arr) {
   for (let i = 0; i < arr.length - 1; i++) {
     const curr = Number.parseInt(arr[i]);
