@@ -361,45 +361,45 @@ TRAVERSE input array of elements
   REASSIGN leftProduct to the result of multiplying itself by the current element
 
 */
-function makeProductArray(input) {
-  if (input.length === 0) return [];
-  if (typeof input[0] !== 'number') return 'invalid input';
+// function makeProductArray(input) {
+//   if (input.length === 0) return [];
+//   if (typeof input[0] !== 'number') return 'invalid input';
 
-  let leftProduct = 1;
-  let rightProduct = input.slice(1, input.length).reduce((a, c) => a * c);
-  const products = [];
+//   let leftProduct = 1;
+//   let rightProduct = input.slice(1, input.length).reduce((a, c) => a * c);
+//   const products = [];
 
-  for (let i = 0, leng = input.length; i < leng; i++) {
-    if (i === 0) {
-      products.push(rightProduct);
-    } else if (i === leng - 1) {
-      leftProduct = leftProduct * input[i - 1];
-      products.push(leftProduct);
-    } else {
-      rightProduct = rightProduct / (input[i] || 1);
-      leftProduct = leftProduct * input[i - 1];
-      products.push(rightProduct * leftProduct);
-    }
-  }
+//   for (let i = 0, leng = input.length; i < leng; i++) {
+//     if (i === 0) {
+//       products.push(rightProduct);
+//     } else if (i === leng - 1) {
+//       leftProduct = leftProduct * input[i - 1];
+//       products.push(leftProduct);
+//     } else {
+//       rightProduct = rightProduct / (input[i] || 1);
+//       leftProduct = leftProduct * input[i - 1];
+//       products.push(rightProduct * leftProduct);
+//     }
+//   }
 
-  /*
-  if at first element:
-    push right into products
+//   /*
+//   if at first element:
+//     push right into products
 
-  if at last element:
-    reassign left to itself * the element to its left
-    push left into products
+//   if at last element:
+//     reassign left to itself * the element to its left
+//     push left into products
 
-  else:
-    reassign right to itself divided by the current element
-    reassign left to itself * the previous element
-    push the value of left * right into products
+//   else:
+//     reassign right to itself divided by the current element
+//     reassign left to itself * the previous element
+//     push the value of left * right into products
 
-  */
-  return products;
-}
+//   */
+//   return products;
+// }
 
-console.log(makeProductArray([-1,1,0,-3,3])) // [0,0,9,0,0]
+// console.log(makeProductArray([-1,1,0,-3,3])) // [0,0,9,0,0]
 
 // const sparseArray = [];
 // sparseArray.length = 10;
@@ -414,3 +414,153 @@ console.log(makeProductArray([-1,1,0,-3,3])) // [0,0,9,0,0]
 // console.log(makeProductArray([-0, 2, 3, 4])) // [24, -0, -0, -0]
 // console.log(makeProductArray([1, 2, 3, 4])) // [24, 12, 8, 6]
 
+
+// function vowelCount(input) {
+//   const substrings = [];
+//   let counter = 0;
+//   let result = 0;
+
+//   for (let i = 0; i < input.length; i++) {
+//     const chr = input[i];
+//     if (counter === input.length) {
+//       substrings.push(chr);
+//     } else {
+//       substrings.push(input.slice(i, counter));
+//     }
+//     counter++;
+//   }
+
+//   substrings.forEach(substring => {
+//     const vowels = substring.match(/[aeiou]/gi);
+//     if (vowels) {
+//       result += vowels.length;
+//     }
+//   })
+//   return substrings;
+// }
+
+// console.log(vowelCount('hello')) // 13
+
+/*
+const vowelCount = string => {
+  const len = string.length;
+  const appearances = [];
+
+  for (let i = 0; i < len; i++) {
+    if (i === 0) {
+      appearances.push(len);
+    } else {
+      appearances.push((len - i) + appearances[i - 1] - i);
+    }
+  }
+  // return appearances;
+
+  return appearances.reduce((r, v, idx) => {
+    if (/[aeiou]/ig.test(string[idx])) r += v;
+    return r
+  }, 0);
+};
+ */
+
+// function intersection(arrs) {
+//   const result = [];
+
+//   for (let i = 0; i < arrs[0].length; i++) {
+//     const val = arrs[0][i];
+//     if (arrs[1].includes(val) && arrs[2].includes(val)) result.push(val);
+//   }
+
+//   return result;
+// }
+
+// function intersection(arrs) {
+//   return arrs[0].reduce((acc, curr) => {
+//     if (arrs[1].includes(curr) && arrs[2].includes(curr)) {
+//       acc.push(curr);
+//     }
+//     return acc;
+//   }, [])
+// }
+
+
+// const arr1 = [5, 10, 15, 20];
+// const arr2 = [15, 88, 1, 5, 7];
+// const arr3 = [1, 10, 15, 5, 20];
+// console.log(intersection([arr1, arr2, arr3])); // should log: [5, 15]
+
+
+// function union(arrays) {
+//   const result = [];
+
+//   arrays.forEach(arr => {
+//     result.push(...arr);
+//   });
+
+//   return result.reduce((acc, curr) => {
+//     if (!acc.includes(curr)) acc.push(curr);
+//     return acc;
+//   }, []);
+// }
+// // Uncomment these to check your work!
+// const arr1 = [5, 10, 15];
+// const arr2 = [15, 88, 1, 5, 7];
+// const arr3 = [100, 15, 10, 1, 5];
+// console.log(union([arr1, arr2, arr3])); // should log: [5, 10, 15, 88, 1, 7, 100]
+
+
+// function goodKeys(obj, cb) {
+//   const keys = Object.keys(obj);
+//   const result = [];
+
+//   for (const key of keys) {
+//     const val = obj[key];
+//     if (cb(val)) {
+//       result.push(key);
+//     }
+//   }
+
+//   return result;
+// }
+
+// // Uncomment these to check your work!
+// const sunny = { mac: 'priest', dennis: 'calculator', charlie: 'birdlaw', dee: 'bird', frank: 'warthog' };
+// function startsWithBird(str) { return str.slice(0, 4).toLowerCase() === 'bird'; };
+// console.log(goodKeys(sunny, startsWithBird)); // should log: ['charlie', 'dee']
+
+
+
+const maxProfit = (prices) => {
+  if (prices.length < 2) return 0; // doesn't account for sparse arrays
+
+  for (let i = 0; i < prices.length - 1; i++) {
+    let left = prices[i];
+    let right = prices[i + 1];
+
+    console.log(left, right)
+
+  }
+
+  // let profit = 0;
+  // const getMax = (prices) => Math.max(...prices);
+  // let min = Infinity;
+  // let max = getMax(prices.slice(1));
+
+  // while (prices.length > 1) {
+  //   let tempShifted = prices.shift();
+
+  //   if (tempShifted < min) min = tempShifted;
+
+  //   if (min === max) max = getMax(prices);
+
+  //   if (min >= max) continue;
+
+  //   let tempProfit = max - min;
+
+  //   if (tempProfit > profit) profit = tempProfit;
+  // }
+
+
+};
+
+
+console.log(maxProfit([2,1,2,0,1]))

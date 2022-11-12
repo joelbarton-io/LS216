@@ -3,3 +3,103 @@
 23,56,7
 13,45,78,23,45,34
 13,45,78,23,45,34,56
+
+
+
+In this task you have to find the presence of vowels in all possible substrings of the given string.
+For each given string you have to print the total number of vowels.
+
+1) vowels are aeiouAEIOU
+2) total number of vowels:
+3) 'words' are space or end/beginning-of-line separated groups of characters
+4) will there be multiple words in each input string? do we have to print out the
+5) are only unique vowels counted in the total sum?
+6) a substring is a set of 1 or more consecutive characters present in the input string
+
+'hello there'
+
+h, he, hel, hell, hello, e, el, ell, ello, l, ll, llo, l, lo, o . -> 13
+
+
+rules:
+- a single chr IS a substring
+- output is sum of all substring vowel counts
+
+/*
+?:
+
+
+-> i:
+
+<- o:
+
+
+
+explicit rules:
+implicit rules:
+
+
+mental model: SPLIT the given string into a LIST of all sub strings which contain at least 1 vowel,
+count the number of vowels in that sub string and return the total COUNT out of the function
+
+
+sub-problems:
+
+- using nested loops to produce two separate counters, slice substrings
+  - for each substring:
+    - check if that substring has any vowels
+    - IF hasVowels:
+      - count vowels in currSubstring
+      - increment result by vowelCount
+
+
+steps:
+GUARD against:
+  - invalid input type (any nonstring)
+
+DECLARE result, initialize to zero
+
+  - empty string -> return result
+  - check if input string has any vowels to begin with, if doesn't, just return result's initial value
+
+- using nested loops to produce two separate counters, slice substrings
+  - for each substring:
+    - check if that substring has any vowels
+    - IF hasVowels:
+      - increment result by vowelCount's length
+- return count
+
+
+helper-> containsVowel predicate:
+  /[aeiou]/ig with match
+*/
+h, he, hel, hell, hello, e, el, ell, ello, l, ll, llo, l, lo, o . -> 13
+
+[]
+1
+''
+'llll'
+'hello'
+
+function vowelCount(input) {
+  if (typeof input !== 'string') return 'Invalid input';
+  let totalCount = 0;
+  const regex = /[aeiou]/gi
+  if (input.length === 0) return totalCount;
+  if (!input.match(regex)) return totalCount;
+
+  for (let first = 0, l = input.length; first < l; first++) {
+    for (let last = first + 1; last < l; last++) {
+      const currSubString = input.slice(first, last);
+      const foundVowels = hasVowels(currSubString, regex);
+      if (foundVowels) {
+        totalCount += foundVowels.length;
+      }
+    }
+  }
+  return totalCount;
+}
+
+function hasVowels(candidate, regex) { // returns either null (no vowels) or an array listing the found vowels
+  return candidate.match(regex);
+}

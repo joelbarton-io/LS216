@@ -8,11 +8,11 @@
 
 
 
-expl/impl rules (validate with test-cases):
+explicit rules:
+implicit rules:
 
 
-
-sub-problems:
+mental model & sub-problems:
 
 
 
