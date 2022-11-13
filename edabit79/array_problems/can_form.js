@@ -119,7 +119,7 @@ function asDictionary(longestString) {
       result[chr] = 1;
     }
   }
-  
+
   return result;
 }
 
@@ -147,9 +147,6 @@ console.log(canForm(["may", "master", "same", "reams"])); // false
 console.log(canForm(["may", "same", "reams", "mastery"])); // true
 
 // edge cases:
-console.log(canForm(["", "helicopter", "", ""])); // true
-console.log(canForm(["", "", "", ""])); // ERROR
-console.log(canForm(undefined)); // ERROR
-console.log(canForm([])); // ERROR
+ 
 
 // ~> 47:00
