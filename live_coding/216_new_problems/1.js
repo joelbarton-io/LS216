@@ -137,10 +137,20 @@ Will the second argument ever be negative? If so, what should I do?
   - I didn't ask that question as such, but did guard against non-positive k values
 
 Can the array be sparse? If so, how should I handle the missing elements?
-  - Didn't address this since sparse arrays are kind of dumb
+  - Didn't address this since sparse arrays are kind of dumb/a contrived example, can handle in a number of ways
+
 Can the array contain any number of elements?
+  - I asked this question
+
 Can the array be empty? If so, what should I return in that case?
+  - similar to the previous question
+
 Will strings always be one character long, or can they be any length?
+  - tangentially addressed this with asking about "empty" strings
+
 Will k always be a positive number greater than 0? If not, how should I handle negative numbers and 0?
+  - YES, covered this
+
 Should I return an empty string if there aren't k distinct strings?
+  -
 */

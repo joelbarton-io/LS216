@@ -78,20 +78,20 @@ function matchPattern(word, pattern) {
   return true;
 }
 
-const sparseArr = ['banana'];
-sparseArr.length = 3;
-var fruits = ['banana', 'apple', 'papaya', 'cherry'];
+// const sparseArr = ['banana'];
+// sparseArr.length = 3;
+// var fruits = ['banana', 'apple', 'papaya', 'cherry'];
 
-console.log(getMatchingWords(fruits, 'lemon'))     // must return []
-console.log(getMatchingWords(fruits, 'cherr??'))   // must return []
-console.log(getMatchingWords(fruits, '?a?a?a'))    // must return ['banana', 'papaya']
-console.log(getMatchingWords(fruits, '??????'))    // must return ['banana', 'papaya', 'cherry']
-console.log(getMatchingWords(sparseArr, 'ban??a'))  // ['banana]
-console.log(getMatchingWords(fruits, 'ap le'))      // []
-console.log(getMatchingWords(fruits, '?a?a?a'))    // must return ['banana', 'papaya']
+// console.log(getMatchingWords(fruits, 'lemon'))     // must return []
+// console.log(getMatchingWords(fruits, 'cherr??'))   // must return []
+// console.log(getMatchingWords(fruits, '?a?a?a'))    // must return ['banana', 'papaya']
+// console.log(getMatchingWords(fruits, '??????'))    // must return ['banana', 'papaya', 'cherry']
+// console.log(getMatchingWords(sparseArr, 'ban??a'))  // ['banana]
+// console.log(getMatchingWords(fruits, 'ap le'))      // []
+// console.log(getMatchingWords(fruits, '?a?a?a'))    // must return ['banana', 'papaya']
 
-var otherFruits = ['banan?', 'apple', 'papaya'];
-console.log(getMatchingWords(otherFruits, '?a?a??'));    // must return ['banan?', 'papaya']
+// var otherFruits = ['banan?', 'apple', 'papaya'];
+// console.log(getMatchingWords(otherFruits, '?a?a??'));    // must return ['banan?', 'papaya']
 
 // console.log(getMatchingWords([], 'lemon'));         // ERROR message
 // console.log(getMatchingWords([1, 'hello'], 'lemon'));         // ERROR message
@@ -99,4 +99,6 @@ console.log(getMatchingWords(otherFruits, '?a?a??'));    // must return ['banan?
 // console.log(getMatchingWords('lemon', ['lemon']));  // ERROR message
 // var empty = ['   ', '', '     '];
 // console.log(getMatchingWords(empty, '???')) // ['   ']
+
+
 
