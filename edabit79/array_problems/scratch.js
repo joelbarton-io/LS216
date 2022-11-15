@@ -1,0 +1,1 @@
+const arr = [1, 2, '2', undefined, 'undefined', undefined];

@@ -90,16 +90,16 @@ function findTarget(matrix, target) {
 const searchMatrix = (matrix, target) => {
 
   let col = matrix[0].length - 1;
-  let xMax = 0;
+  let colMin = 0;
 
   let row = 0;
   let rowMax = matrix.length - 1;
 
   let curr;
 
-  // console.log('col: ' + col, 'row: ' + row, 'curr: ' + curr);
   do {
     curr = matrix[row][col];
+    // console.log('col: ' + col, 'row: ' + row, 'curr: ' + curr);
 
     if (curr < target) {
       // console.log('eliminated row: ' + row);
@@ -115,7 +115,7 @@ const searchMatrix = (matrix, target) => {
       return true;
     }
 
-  } while (col >= xMax && row <= rowMax);
+  } while (col >= colMin && row <= rowMax);
 
   return false;
 }

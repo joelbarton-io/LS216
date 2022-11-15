@@ -10,10 +10,10 @@
       - how do I handle the wrong number of args? (ommitted/excess)
     2. are the argument(s) data types guaranteed?
       - if not, how should the wrong types be handled?
-    3. if an argument is a collection...
+    3. if all arguments are the 'right' type, what about subtypes? (e.g. for Number: `NaN`, `+/-Infinity`, `Float`, Non-base 10 nums, leading 0: octal unless next num is 8 or 9)
+    4. if an argument is a collection...
       - will all elements be the 'same' type?
       - subtypes
-    4. if all arguments are the'right' type, what about subtypes? (e.g. for Number: `NaN`, `+/-Infinity`, `Float`, Non-base 10 nums, leading 0: octal unless next num is 8 or 9)
 
 
   ## type-specific considerations:
