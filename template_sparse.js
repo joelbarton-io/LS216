@@ -1,24 +1,19 @@
 /*
-?:
+
+INPUT:
+OUTPUT:
+DATA FLOW:
 
 
--> i:
+REQUIREMENTS:
 
-<- o:
+EDGE CASES:
 
-
-
-explicit rules:
-implicit rules:
-
-
-mental model & sub-problems:
+SUMMARY:
 
 
 
-
-steps:
-
+STEPS:
 
 
 

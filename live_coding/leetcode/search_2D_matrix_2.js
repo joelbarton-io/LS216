@@ -99,21 +99,9 @@ const searchMatrix = (matrix, target) => {
 
   do {
     curr = matrix[row][col];
-    // console.log('col: ' + col, 'row: ' + row, 'curr: ' + curr);
-
-    if (curr < target) {
-      // console.log('eliminated row: ' + row);
-      row++;
-    }
-
-    if (curr > target) {
-      // console.log('eliminated col: ' + col);
-      col--;
-    }
-
-    if (curr === target) {
-      return true;
-    }
+    if (curr < target) row++;
+    if (curr > target) col--;
+    if (curr === target) return true;
 
   } while (col >= colMin && row <= rowMax);
 
@@ -128,7 +116,7 @@ const matrixB = [
   [18,21,23,26,30]
 ];
 
-const targetB = 20;
+const targetB = 21;
 // console.log('target: ' + targetB);
 // console.table(matrixB);
 console.log(searchMatrix(matrixB, targetB))
