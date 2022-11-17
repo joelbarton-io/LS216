@@ -529,16 +529,16 @@ const vowelCount = string => {
 
 
 
-const maxProfit = (prices) => {
-  if (prices.length < 2) return 0; // doesn't account for sparse arrays
+// const maxProfit = (prices) => {
+//   if (prices.length < 2) return 0; // doesn't account for sparse arrays
 
-  for (let i = 0; i < prices.length - 1; i++) {
-    let left = prices[i];
-    let right = prices[i + 1];
+//   for (let i = 0; i < prices.length - 1; i++) {
+//     let left = prices[i];
+//     let right = prices[i + 1];
 
-    console.log(left, right)
+//     console.log(left, right)
 
-  }
+//   }
 
   // let profit = 0;
   // const getMax = (prices) => Math.max(...prices);
@@ -560,7 +560,40 @@ const maxProfit = (prices) => {
   // }
 
 
-};
+// };
 
 
-console.log(maxProfit([2,1,2,0,1]))
+// console.log(maxProfit([2,1,2,0,1]))
+
+
+
+const binarySearchMatrix = (matrix, target) => {
+  let flatMatrix = matrix.flat();
+  let idx = Math.floor((flatMatrix.length / 2));
+  let cur = flatMatrix[idx];
+  if (target > flatMatrix.slice(-1)[0] || target < flatMatrix[0]) return false;
+
+  while (flatMatrix.length > 0) {
+
+
+    if (cur === target) return true;
+
+    if (cur < target) {
+      flatMatrix = flatMatrix.slice(idx + 1);
+      idx = Math.floor((flatMatrix.length / 2));
+      cur = flatMatrix[idx];
+    } else if (cur > target) {
+      flatMatrix = flatMatrix.slice(0, idx);
+      idx = Math.floor((flatMatrix.length / 2));
+      cur = flatMatrix[idx];
+    }
+  }
+
+  return false;
+}
+
+const a = [[1,3,5,7,9],[10,11,16,20,22],[23,30,34,50,54]]
+
+console.log(binarySearchMatrix(a, 7));
+
+
