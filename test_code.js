@@ -567,33 +567,76 @@ const vowelCount = string => {
 
 
 
-const binarySearchMatrix = (matrix, target) => {
-  let flatMatrix = matrix.flat();
-  let idx = Math.floor((flatMatrix.length / 2));
-  let cur = flatMatrix[idx];
-  if (target > flatMatrix.slice(-1)[0] || target < flatMatrix[0]) return false;
+// const binarySearchMatrix = (matrix, target) => {
+//   let flatMatrix = matrix.flat();
+//   let idx = Math.floor((flatMatrix.length / 2));
+//   let cur = flatMatrix[idx];
+//   if (target > flatMatrix.slice(-1)[0] || target < flatMatrix[0]) return false;
 
-  while (flatMatrix.length > 0) {
+//   while (flatMatrix.length > 0) {
 
 
-    if (cur === target) return true;
+//     if (cur === target) return true;
 
-    if (cur < target) {
-      flatMatrix = flatMatrix.slice(idx + 1);
-      idx = Math.floor((flatMatrix.length / 2));
-      cur = flatMatrix[idx];
-    } else if (cur > target) {
-      flatMatrix = flatMatrix.slice(0, idx);
-      idx = Math.floor((flatMatrix.length / 2));
-      cur = flatMatrix[idx];
-    }
-  }
+//     if (cur < target) {
+//       flatMatrix = flatMatrix.slice(idx + 1);
+//       idx = Math.floor((flatMatrix.length / 2));
+//       cur = flatMatrix[idx];
+//     } else if (cur > target) {
+//       flatMatrix = flatMatrix.slice(0, idx);
+//       idx = Math.floor((flatMatrix.length / 2));
+//       cur = flatMatrix[idx];
+//     }
+//   }
 
-  return false;
+//   return false;
+// }
+
+// const a = [[1,3,5,7,9],[10,11,16,20,22],[23,30,34,50,54]]
+
+// console.log(binarySearchMatrix(a, 7));
+
+
+function longestRun(input) {
+
+  if (!Array.isArray(input)) return 'invalid input';
+  if (input.length === 0) return 1;
+  if (input[0] === undefined) return 1;
+
+  return ascending(input);
+
 }
 
-const a = [[1,3,5,7,9],[10,11,16,20,22],[23,30,34,50,54]]
+function ascending(input) {
+  const lengths = [];
+  let currRunLeng = 1;
+  const consecutiveAscending = (left, right) => left + 1 === right;
 
-console.log(binarySearchMatrix(a, 7));
+  for (let i = 1; i < input.length; i++) {
+    let left = input[i - 1];
+    let right = input[i];
+
+    if (consecutiveAscending(left, right)) {
+      currRunLeng++;
+    } else {
+      lengths.push(currRunLeng);
+      currRunLeng = 1;
+    }
+  }
+  return lengths;
+}
+
+const consecutiveDescending = (left, right) => left - 1 === right;
+
+
+console.log(longestRun([1, 2, 3, 5, 6, 7, 8, 9])); // ➞ 5
+// console.log(longestRun([3, 2, 1, 5, 6, 7, 100, 9])) // ➞ 3
+// console.log(longestRun([1, 2, 3, 5, 6, 7, 100, 9])) // ➞ 3
+// console.log(longestRun([1, 3, 3, 5, 100, 7, 100, 9])) // ➞ 1
+
+// console.log(longestRun([])) // ➞ 1
+// const sparse = [];
+// sparse.length = 5;
+// console.log(longestRun(sparse)) // 1
 
 
