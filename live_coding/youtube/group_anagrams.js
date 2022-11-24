@@ -41,19 +41,20 @@ traverse input array of strings:
 
 */
 
-var groupAnagrams = function(strs) {
-  if (strs.length === 1) return [strs];
-  const groups = {};
+// var groupAnagrams = function(strs) {
+//   if (strs.length === 1) return [strs];
+//   const groups = {};
 
-  strs.forEach(word => {
-    const sortedWord = word.split('').sort().join('');
+//   strs.forEach(word => {
+//     const sortedWord = word.split('').sort().join('');
 
-    if (groups[sortedWord]) {
-      groups[sortedWord].push(word);
-    } else {
-      groups[sortedWord] = [word];
-    }
-  })
+//     if (groups[sortedWord]) {
+//       groups[sortedWord].push(word);
+//     } else {
+//       groups[sortedWord] = [word];
+//     }
+//   })
 
-  return Object.values(groups);
-};
+//   return Object.values(groups);
+// };
+
