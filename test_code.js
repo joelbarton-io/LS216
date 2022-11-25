@@ -597,46 +597,58 @@ const vowelCount = string => {
 // console.log(binarySearchMatrix(a, 7));
 
 
-function longestRun(input) {
+// function longestRun(input) {
 
-  if (!Array.isArray(input)) return 'invalid input';
-  if (input.length === 0) return 1;
-  if (input[0] === undefined) return 1;
+//   if (!Array.isArray(input)) return 'invalid input';
+//   if (input.length === 0) return 1;
+//   if (input[0] === undefined) return 1;
 
-  return ascending(input);
+//   return ascending(input);
 
-}
+// }
 
-function ascending(input) {
-  const lengths = [];
-  let currRunLeng = 1;
-  const consecutiveAscending = (left, right) => left + 1 === right;
+// function ascending(input) {
+//   const lengths = [];
+//   let currRunLeng = 1;
+//   const consecutiveAscending = (left, right) => left + 1 === right;
 
-  for (let i = 1; i < input.length; i++) {
-    let left = input[i - 1];
-    let right = input[i];
+//   for (let i = 1; i < input.length; i++) {
+//     let left = input[i - 1];
+//     let right = input[i];
 
-    if (consecutiveAscending(left, right)) {
-      currRunLeng++;
-    } else {
-      lengths.push(currRunLeng);
-      currRunLeng = 1;
-    }
-  }
-  return lengths;
-}
+//     if (consecutiveAscending(left, right)) {
+//       currRunLeng++;
+//     } else {
+//       lengths.push(currRunLeng);
+//       currRunLeng = 1;
+//     }
+//   }
+//   return lengths;
+// }
 
-const consecutiveDescending = (left, right) => left - 1 === right;
-
-
-console.log(longestRun([1, 2, 3, 5, 6, 7, 8, 9])); // ➞ 5
-// console.log(longestRun([3, 2, 1, 5, 6, 7, 100, 9])) // ➞ 3
-// console.log(longestRun([1, 2, 3, 5, 6, 7, 100, 9])) // ➞ 3
-// console.log(longestRun([1, 3, 3, 5, 100, 7, 100, 9])) // ➞ 1
-
-// console.log(longestRun([])) // ➞ 1
-// const sparse = [];
-// sparse.length = 5;
-// console.log(longestRun(sparse)) // 1
+// const consecutiveDescending = (left, right) => left - 1 === right;
 
 
+// console.log(longestRun([1, 2, 3, 5, 6, 7, 8, 9])); // ➞ 5
+// // console.log(longestRun([3, 2, 1, 5, 6, 7, 100, 9])) // ➞ 3
+// // console.log(longestRun([1, 2, 3, 5, 6, 7, 100, 9])) // ➞ 3
+// // console.log(longestRun([1, 3, 3, 5, 100, 7, 100, 9])) // ➞ 1
+
+// // console.log(longestRun([])) // ➞ 1
+// // const sparse = [];
+// // sparse.length = 5;
+// // console.log(longestRun(sparse)) // 1
+
+
+// var rearrangeArray = function(nums) {
+//   nums.sort((a, b) => a - b);
+//   let leftHalf = nums.splice(0, nums.length / 2).reverse();
+//   let result = [];
+//   while (nums.length > 0 || leftHalf.length > 0) {
+//     if (nums.length !== 0) result.push(nums.pop())
+//     if (leftHalf.length !== 0) result.push(leftHalf.pop())
+//   }
+//   return result;
+// };
+
+// console.log(rearrangeArray([15,7,13,6,3,11,14,1,20]));
