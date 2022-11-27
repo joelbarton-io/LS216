@@ -1,6 +1,6 @@
 ## `String` methods:
 
-- `indexOf(str, startingIdx)`, `lastIndexOf()`, `replace()`, `split()`, `slice()`, `substring()`, `toUpperCase()`, `toLowerCase()`, `toString()`, `endsWith()`
+- `indexOf(str, startingIdx)`, `lastIndexOf()`, `replace()`, `replaceAll()`, `split()`, `slice(startIndex, )`, `substring()`, `toUpperCase()`, `toLowerCase()`, `toString()`, `endsWith()`
 
 ## General observations:
 
@@ -10,7 +10,7 @@
 
 - log out every new change to ensure things are working as expected before you continue
 
-- INTERESTING BEHAVIOUR WITH `myObj.hasOwnProperty(myProp)` vs myObj[myProp] in a conditional statement
+- INTERESTING BEHAVIOUR WITH `myObj.hasOwnProperty(myProp)` vs `myObj[myProp]` in a conditional statement
 
 - HOW DOES `Object.fromEntries(entries)` work when dealing with a 'sorted' array?
 
