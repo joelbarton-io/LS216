@@ -652,3 +652,4 @@ const vowelCount = string => {
 // };
 
 // console.log(rearrangeArray([15,7,13,6,3,11,14,1,20]));
+
