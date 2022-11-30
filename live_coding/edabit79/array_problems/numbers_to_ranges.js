@@ -1,6 +1,3 @@
-
-
-
 /* Create a function which converts an ordered number array into a array of ranges
 (represented as strings). Note how some arrays have some numbers missing.
 
@@ -101,8 +98,12 @@ function numbersToRanges(input) {
 }
 
 
-console.log(numbersToRanges([1, 2, 3, 4, 5, 7, 8, 16])) // ['1-5', '7-8']
+console.log(numbersToRanges([1, 2, 3, 4, 5, 7, 8, 16])) // ['1-5', '7-8', '16']
 console.log(numbersToRanges([1, 4, 5, 7, 8])) // ['1', 4-5', '7-8']
 console.log(numbersToRanges([1, 3, 5, 7, 9])) // ['1', '3'. ...]
-// console.log(numbersToRanges([])) // []
-// console.log(numbersToRanges([3])) // ['3']
+console.log(numbersToRanges([])) // []
+console.log(numbersToRanges([3])) // ['3']
+console.log(numbersToRanges([1, 2, 3, 4, 5])) //➞ ["1-5"]
+console.log(numbersToRanges([3, 4, 5, 10, 11, 12])) //➞ ["3-5", "10-12"]
+console.log(numbersToRanges([1, 2, 3, 4, 99, 100])) //➞ ["1-4", "99-100"]
+console.log(numbersToRanges([1, 3, 4, 5, 6, 7, 8])) //➞ ["1", "3-8"]
