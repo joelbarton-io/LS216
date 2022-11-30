@@ -653,54 +653,118 @@ const vowelCount = string => {
 
 // console.log(rearrangeArray([15,7,13,6,3,11,14,1,20]));
 
-function blockPushing(arr, num) {
-  while (num > 0) {
-    for (let idx in arr) {
-      let elem = arr[idx];
-      if (elem === '>') {
-        push(arr, idx);
-      }
-    }
-    num -= 1;
-  }
-  return arr;
-}
+// function blockPushing(arr, num) {
+//   while (num > 0) {
+//     for (let idx in arr) {
+//       let elem = arr[idx];
+//       if (elem === '>') {
+//         push(arr, idx);
+//       }
+//     }
+//     num -= 1;
+//   }
+//   return arr;
+// }
 
-function push(arr, idx) {
-  if (arr[idx + 1] && arr[idx + 1] === '-') {
-    arr[idx + 1] = '>';
-    arr[idx] = '-';
-    return arr;
-  } else if (arr[idx + 1] && (arr[idx + 1] === '#' || arr[idx + 1] === '>')) {
-    if (arr[idx + 2] && arr[idx + 2] === '-') {
-      arr[idx + 2] = arr[idx + 1];
-      arr[idx + 1] = '>';
-      arr[idx] = '-';
-      return arr;
-    } else if (arr[idx + 2] && arr[idx + 2] !== '-') {
-      if (arr.slice(idx + 2).includes('-')) {
-        arr[idx + 2 + arr.slice(idx + 2).indexOf('-')] = arr[idx + 1];
-        arr[idx + 1] = '>';
-        arr[idx] = '-';
-        return arr;
-      }
-    }
-  }
-  return arr;
-}
+// function push(arr, idx) {
+//   if (arr[idx + 1] && arr[idx + 1] === '-') {
+//     arr[idx + 1] = '>';
+//     arr[idx] = '-';
+//     return arr;
+//   } else if (arr[idx + 1] && (arr[idx + 1] === '#' || arr[idx + 1] === '>')) {
+//     if (arr[idx + 2] && arr[idx + 2] === '-') {
+//       arr[idx + 2] = arr[idx + 1];
+//       arr[idx + 1] = '>';
+//       arr[idx] = '-';
+//       return arr;
+//     } else if (arr[idx + 2] && arr[idx + 2] !== '-') {
+//       if (arr.slice(idx + 2).includes('-')) {
+//         arr[idx + 2 + arr.slice(idx + 2).indexOf('-')] = arr[idx + 1];
+//         arr[idx + 1] = '>';
+//         arr[idx] = '-';
+//         return arr;
+//       }
+//     }
+//   }
+//   return arr;
+// }
 
-console.log(blockPushing(['-', '>', '#', '-', '#', '-', '-', '-'], 1));// ['-', '-', '>', '#', '#', '-', '-', '-']
-console.log(blockPushing(['>', '#', '-', '#', '-', '-', '#'], 10))// ['-', '-', '-', '>', '#', '#', '#']
-console.log(blockPushing(['>', '-', '>', '#', '-', '-', '#', '-'], 2))// ['-', '-', '>', '-', '>', '#', '#', '-']
-console.log(blockPushing(['>', '>', '>', '-'], 3))// ['-', '>', '>', '>']
-console.log(blockPushing(['>', '-', '#', '-', '-', '>', '#', '-', '-' ], 2))// ['-', '-', '>', '#', '-','-','-', '>', '#']
-console.log(blockPushing(['-', '>', '#', '-', '#', '-', '-', '-'], 1))//, ['-', '-', '>', '#', '#', '-', '-', '-'])
-console.log(blockPushing(['>', '#', '-', '#', '-', '-', '#'], 10))// ['-', '-', '-', '>', '#', '#', '#'])
-console.log(blockPushing(['>', '-', '>', '#', '-', '-', '#', '-'], 2))// ['-', '-', '>', '-', '>', '#', '#', '-'])
-console.log(blockPushing(['>', '>', '>'], 3))// ['>', '>', '>'])
-console.log(blockPushing(['>'], 4))// ['>'])
-console.log(blockPushing(['-'], 2))// ['-'])
-console.log(blockPushing(['#'], 10))// ['#'])
-console.log(blockPushing(['#', '-', '#', '#'], 53))// ['#', '-', '#', '#'])
-console.log(blockPushing(['#', '-', '-', '>', '-', '-'], 3))// ['#', '-', '-', '-', '-', '>'])
-console.log(blockPushing(['#', '>', '#', '-', '-', '>', '>', '-', '#', '-', '-'], 2))//['#', '-', '-', '>', '#', '-', '-', '>', '>', '#', '-'])
+// console.log(blockPushing(['-', '>', '#', '-', '#', '-', '-', '-'], 1));// ['-', '-', '>', '#', '#', '-', '-', '-']
+// console.log(blockPushing(['>', '#', '-', '#', '-', '-', '#'], 10))// ['-', '-', '-', '>', '#', '#', '#']
+// console.log(blockPushing(['>', '-', '>', '#', '-', '-', '#', '-'], 2))// ['-', '-', '>', '-', '>', '#', '#', '-']
+// console.log(blockPushing(['>', '>', '>', '-'], 3))// ['-', '>', '>', '>']
+// console.log(blockPushing(['>', '-', '#', '-', '-', '>', '#', '-', '-' ], 2))// ['-', '-', '>', '#', '-','-','-', '>', '#']
+// console.log(blockPushing(['-', '>', '#', '-', '#', '-', '-', '-'], 1))//, ['-', '-', '>', '#', '#', '-', '-', '-'])
+// console.log(blockPushing(['>', '#', '-', '#', '-', '-', '#'], 10))// ['-', '-', '-', '>', '#', '#', '#'])
+// console.log(blockPushing(['>', '-', '>', '#', '-', '-', '#', '-'], 2))// ['-', '-', '>', '-', '>', '#', '#', '-'])
+// console.log(blockPushing(['>', '>', '>'], 3))// ['>', '>', '>'])
+// console.log(blockPushing(['>'], 4))// ['>'])
+// console.log(blockPushing(['-'], 2))// ['-'])
+// console.log(blockPushing(['#'], 10))// ['#'])
+// console.log(blockPushing(['#', '-', '#', '#'], 53))// ['#', '-', '#', '#'])
+// console.log(blockPushing(['#', '-', '-', '>', '-', '-'], 3))// ['#', '-', '-', '-', '-', '>'])
+// console.log(blockPushing(['#', '>', '#', '-', '-', '>', '>', '-', '#', '-', '-'], 2))//['#', '-', '-', '>', '#', '-', '-', '>', '>', '#', '-'])
+
+
+
+
+// toAdd : 0
+//  '1111'
+//+ '1111'
+//      ^
+// res   : ''
+
+var addBinary = function(a, b) {
+  let aPoint = a.length - 1;
+  let bPoint = b.length - 1;
+  let result = '';
+  let toAdd  = 0;
+  let aVal;
+  let bVal;
+
+  while (aPoint >= 0 || bPoint >= 0) { // 3, 3
+    let sum;
+
+    if (aPoint < 0) {
+      aVal = 0;
+    }
+
+    if (bPoint < 0) {
+      bVal = 0;
+    }
+
+    if (bPoint >= 0) {
+      bVal = Number(b[bPoint]);
+    }
+    if (aPoint >= 0) {
+      aVal = Number(a[aPoint]);
+    }
+
+    sum = aVal + bVal + toAdd;
+    console.log('sum: ' + sum, 'aVal: ' + aVal, 'bVal ' + bVal, 'toAdd: ' + toAdd);
+    if (sum === 2) {
+      toAdd = 1;
+      result = '0' + result;
+    } else if (sum === 3){
+      toAdd = 1;
+      result = '1' + result;
+    } else {
+      toAdd = 0;
+      result = String(sum) + result;
+    }
+
+    aPoint--;
+    bPoint--;
+  }
+  
+  if (toAdd === 1) result = '1' + result;
+  return result;
+
+};
+
+console.log(addBinary("100", "110010"));
+
+//  110110'
+//    "100"
+// "110010"
+//     ^

@@ -5,8 +5,9 @@ var plusOne = function(digits) {
 
   do {
     i--;
-    numbers[i] = numbers[i] + 1;
-  } while (numbers[i] > 9)
+    digits[i] = digits[i] + 1;
+    if (digits[i] === 10) digits.splice(i, 0, 0)
+  } while (digits[i] > 9)
 
   return digits;
 };
