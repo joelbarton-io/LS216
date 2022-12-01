@@ -728,11 +728,9 @@ var addBinary = function(a, b) {
     if (aPoint < 0) {
       aVal = 0;
     }
-
     if (bPoint < 0) {
       bVal = 0;
     }
-
     if (bPoint >= 0) {
       bVal = Number(b[bPoint]);
     }
@@ -741,7 +739,7 @@ var addBinary = function(a, b) {
     }
 
     sum = aVal + bVal + toAdd;
-    console.log('sum: ' + sum, 'aVal: ' + aVal, 'bVal ' + bVal, 'toAdd: ' + toAdd);
+    // console.log('sum: ' + sum, 'aVal: ' + aVal, 'bVal ' + bVal, 'toAdd: ' + toAdd);
     if (sum === 2) {
       toAdd = 1;
       result = '0' + result;
@@ -756,10 +754,9 @@ var addBinary = function(a, b) {
     aPoint--;
     bPoint--;
   }
-  
+
   if (toAdd === 1) result = '1' + result;
   return result;
-
 };
 
 console.log(addBinary("100", "110010"));
