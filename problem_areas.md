@@ -1,6 +1,6 @@
 ## `String` methods:
 
-- `indexOf(str, startingIdx)`, `lastIndexOf()`, `replace()`, `replaceAll()`, `split()`, `slice(startIndex, )`, `substring()`, `toUpperCase()`, `toLowerCase()`, `toString()`, `endsWith()`
+- `indexOf(str, startingIdx)`, `lastIndexOf()`, `replace()`, `replaceAll()`, `split()`, `slice(startIndex, indexOfFirstElToExclude)`, `substring()`, `toUpperCase()`, `toLowerCase()`, `toString()`, `endsWith()`
 
 ## General observations:
 
@@ -29,23 +29,23 @@
 ``` javascript
 obj = { a: 1, b: 2, c: 3, d: 0 };
 
-if (Object.keys().includes('d') {
+if (Object.keys(obj).includes('d')) {
   console.log('found');
 } else {
   console.log('missing');
 }
-// > 'missing'
+// > 'found'
 ```
 
 ``` javascript
 obj = { a: 1, b: 2, c: 3, d: undefined };
 
-if (obj.hasOwnProperty(d) {
+if (obj.hasOwnProperty('d')) {
   console.log('found');
 } else {
   console.log('missing');
 }
-// > 'missing'
+// > 'found'
 ```
 
 

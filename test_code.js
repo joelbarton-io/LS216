@@ -540,24 +540,24 @@ const vowelCount = string => {
 
 //   }
 
-  // let profit = 0;
-  // const getMax = (prices) => Math.max(...prices);
-  // let min = Infinity;
-  // let max = getMax(prices.slice(1));
+// let profit = 0;
+// const getMax = (prices) => Math.max(...prices);
+// let min = Infinity;
+// let max = getMax(prices.slice(1));
 
-  // while (prices.length > 1) {
-  //   let tempShifted = prices.shift();
+// while (prices.length > 1) {
+//   let tempShifted = prices.shift();
 
-  //   if (tempShifted < min) min = tempShifted;
+//   if (tempShifted < min) min = tempShifted;
 
-  //   if (min === max) max = getMax(prices);
+//   if (min === max) max = getMax(prices);
 
-  //   if (min >= max) continue;
+//   if (min >= max) continue;
 
-  //   let tempProfit = max - min;
+//   let tempProfit = max - min;
 
-  //   if (tempProfit > profit) profit = tempProfit;
-  // }
+//   if (tempProfit > profit) profit = tempProfit;
+// }
 
 
 // };
@@ -714,54 +714,194 @@ const vowelCount = string => {
 //      ^
 // res   : ''
 
-var addBinary = function(a, b) {
-  let aPoint = a.length - 1;
-  let bPoint = b.length - 1;
-  let result = '';
-  let toAdd  = 0;
-  let aVal;
-  let bVal;
+// var addBinary = function(a, b) {
+//   let aPoint = a.length - 1;
+//   let bPoint = b.length - 1;
+//   let result = '';
+//   let toAdd  = 0;
+//   let aVal;
+//   let bVal;
 
-  while (aPoint >= 0 || bPoint >= 0) { // 3, 3
-    let sum;
+//   while (aPoint >= 0 || bPoint >= 0) { // 3, 3
+//     let sum;
 
-    if (aPoint < 0) {
-      aVal = 0;
-    }
-    if (bPoint < 0) {
-      bVal = 0;
-    }
-    if (bPoint >= 0) {
-      bVal = Number(b[bPoint]);
-    }
-    if (aPoint >= 0) {
-      aVal = Number(a[aPoint]);
-    }
+//     if (aPoint < 0) {
+//       aVal = 0;
+//     }
+//     if (bPoint < 0) {
+//       bVal = 0;
+//     }
+//     if (bPoint >= 0) {
+//       bVal = Number(b[bPoint]);
+//     }
+//     if (aPoint >= 0) {
+//       aVal = Number(a[aPoint]);
+//     }
 
-    sum = aVal + bVal + toAdd;
-    // console.log('sum: ' + sum, 'aVal: ' + aVal, 'bVal ' + bVal, 'toAdd: ' + toAdd);
-    if (sum === 2) {
-      toAdd = 1;
-      result = '0' + result;
-    } else if (sum === 3){
-      toAdd = 1;
-      result = '1' + result;
-    } else {
-      toAdd = 0;
-      result = String(sum) + result;
-    }
+//     sum = aVal + bVal + toAdd;
+//     // console.log('sum: ' + sum, 'aVal: ' + aVal, 'bVal ' + bVal, 'toAdd: ' + toAdd);
+//     if (sum === 2) {
+//       toAdd = 1;
+//       result = '0' + result;
+//     } else if (sum === 3){
+//       toAdd = 1;
+//       result = '1' + result;
+//     } else {
+//       toAdd = 0;
+//       result = String(sum) + result;
+//     }
 
-    aPoint--;
-    bPoint--;
+//     aPoint--;
+//     bPoint--;
+//   }
+
+//   if (toAdd === 1) result = '1' + result;
+//   return result;
+// };
+
+// console.log(addBinary("100", "110010"));
+
+// //  110110'
+// //    "100"
+// // "110010"
+// //     ^
+
+
+
+// function pickPeaks(numbers) {
+//   const result = {
+//     pos:  [],
+//     peaks: [],
+
+//   };
+//   let mountain = [];
+//   let startMountIdx;
+
+//   if (numbers.length < 3) return result;
+
+// // startMountIdx : 3
+// // []
+// // [2,1,3,2,2,2,2,1]
+// //        ^-^
+//   for (let i = 1; i < numbers.length; i++) {
+//     let left = numbers[i - 1]; // 3
+//     let right = numbers[i];    // 1
+// /*slack
+
+// if (left < right) :
+//     if startMountIndex === undefined startMountIndex = i - 1
+// else if (left == right && mountain.length > 0):
+// */
+//     if (left < right) {
+//       if (startMountIdx === undefined) startMountIdx = i - 1;
+//       mountain.push(left);
+//     } else if (left == right && mountain.length > 0) {
+//       mountain.push(left);
+//     } else if (left > right && mountain.length > 0) {
+//       mountain.push(left); // peak
+//       let peak = Math.max(...mountain); // 3
+//       let mountainPeakIndex = mountain.indexOf(peak); // 1
+//       let peakPosition = startMountIdx + mountainPeakIndex; // 2
+//       result.peaks.push(peak);
+//       result.pos.push(peakPosition);
+//       mountain = [];
+//       startMountIdx = undefined;
+//     }
+//   }
+
+//   return result;
+// }
+
+// console.log(pickPeaks([2,1,3,2,2,2,2,1]));
+
+/*
+{
+  '1':  [7, 0],
+  '3':  [5, 4],
+  '4':  [4, 1],
+  '7':  [1, 3],
+  '8':  [0, 2],
+  '15': [-7, 5],
+}
+
+
+*/
+// [1, 4, 8, 7, 3, 15], 8
+
+/* {
+  '1':  7
+  '3':  5,
+  '4':  4,
+  '7':  1,
+  '8':  0,
+  '15': -7
+} */
+
+// function sumPairs(nums, target) {
+//   if (nums.length < 2) return undefined;
+//   let set = new Set();
+
+//   for (let i = 0; i < nums.length; i++) {
+//     let toAdd = target - nums[i];
+//     if (set.size > 0 && set.has(toAdd)) {
+//       return [toAdd, nums[i]];
+//     }
+//     set.add(nums[i]);
+//   }
+
+//   return undefined;
+// }
+
+// var sumPairs=function(ints, s){
+//   if (ints.length < 2) return undefined; //not enough numbers for pair.
+//   let intSet = new Set()
+//   intSet.add(ints[0]);
+
+//   for (let i=1; i < ints.length; ++i){
+//     let needed = s-ints[i];
+//     if (intSet.has(needed)){//check if we have already seen the number needed to complete the pair.
+//       return [needed,ints[i]];
+//     }
+//     intSet.add(ints[i]);//if not insert the number in set and continue.
+//   }
+//   return undefined;//No answer found
+// }
+// console.log(sumPairs([10, 5, 2, 3, 7, 5],         10));
+
+
+function incrementString (string) {
+  let digts = string.match(/[\d]*$/g);
+  if (digts === null) return string.concat('1');
+
+  let chars = makeChars(string);
+  let digtsAsString = String(Number(digts.join('')) + 1);
+
+
+  if (digts[0].length > digtsAsString.length) {
+    let zerosToAdd = digts[0].length - digtsAsString.length;
+
+    while (zerosToAdd > 0) {
+      digtsAsString = '0' + digtsAsString;
+      zerosToAdd--;
+    }
   }
 
-  if (toAdd === 1) result = '1' + result;
-  return result;
-};
+  return chars + digtsAsString
+}
 
-console.log(addBinary("100", "110010"));
+function makeChars(string) {
+  let countOfNumsAtEnd = 0
 
-//  110110'
-//    "100"
-// "110010"
-//     ^
+  for (let i = string.length - 1; i >= 0; i--) {
+    let chr = string[i];
+    if (chr.match(/\D/)) break;
+    if (chr.match(/\d/)) countOfNumsAtEnd++;
+  }
+
+  return string.slice(0, string.length - countOfNumsAtEnd);
+}
+
+
+
+
+console.log(incrementString("fo99obar99"))
