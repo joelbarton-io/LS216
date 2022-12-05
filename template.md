@@ -1,5 +1,6 @@
 /*
-## REQUIREMENTS:
+## PROBLEM:
+## RULES:
 ## EXAMPLES/EDGE CASES:
 
 ## INPUT:
