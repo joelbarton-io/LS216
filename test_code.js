@@ -880,3 +880,131 @@ const vowelCount = string => {
 //   return str.slice(0, digitStartIdx) + digitStr;
 // }
 
+/*
+## PROBLEM:
+## RULES:
+## EXAMPLES/EDGE CASES:
+
+## INPUT:
+## INTERMEDIATE:
+## OUTPUT:
+
+## SUMMARY:
+## STEPS:
+*/
+
+/* function rot13(input) {
+  if (input.length === 0) return input;
+  const asArr = input.split('');
+
+  for (let i = 0; i < asArr.length; i++) {
+    if (asArr[i].match(/[a-z]/i)) { // if alphabetical chr
+      asArr[i] = rotate(asArr[i]);
+    }
+
+  }
+
+  return asArr.join('');
+} */
+
+/* function rotate(c) {
+  let chrCode;
+  if (c === c.toUpperCase()) {
+    chrCode = c.charCodeAt(0) + 13;
+    if (chrCode > 90) chrCode -= 26;
+  } else if (c === c.toLowerCase()) {
+    chrCode = c.charCodeAt(0) + 13;
+    if (chrCode > 122) chrCode -= 26;
+  }
+
+  return String.fromCharCode(chrCode);
+} */
+/*
+ if uppercase:
+   range of chrcodes is  65...90 (inclusive)
+   get chr code of c and add 13 to it
+   if this value is > range limit, subtract 26
+
+ if lowercase:
+   range of chrcodes i is 97...122 (inclusive)
+   get chr code of c and add 13 to it
+   if this value is > range limit, subtract 26
+
+ get string from calculated chr code and return this string chr
+ */
+/* let input = [-48,-3,12];
+
+var maxSequence = function(arr){
+  if (arr.length === 0) return 0;
+  if (arr.every(n => n < 0)) return 0;
+
+  let maxSum = -Infinity;
+  const groups = [];
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i; j < arr.length; j++) {
+      groups.push(arr.slice(i, j + 1));
+    }
+  }
+
+  groups.forEach(group => {
+    let sum = group.reduce((a, c) => a + c, 0);
+    if (sum > maxSum) maxSum = sum;
+  });
+
+  if (maxSum < 0) return 0;
+  return maxSum;
+} */
+/*
+
+create array of consecutive subsequence (subarrays) from input array of integers
+
+declare maxSum
+
+loop through array of subarrays:
+  update maxSum when appropriate
+
+if maxSum < 0 return 0
+
+*/
+
+const findTheSubstring = (s, words) => {
+  const START_INDICES = [];
+  const WORD_LENG = words[0].length;
+  const WORDS_INITIAL = words.join('');
+  const INIT_LENG = WORDS_INITIAL.length;
+
+  let wordsCurrent = words.join('');
+
+  let start = 0;
+  let end = WORD_LENG;
+  let startIdx;
+
+  while (end <= s.length) {
+    let curr = s.slice(start, end);
+    
+    if (wordsCurrent.length === INIT_LENG) startIdx = start;
+
+    if (wordsCurrent.includes(curr)) {
+      wordsCurrent.replace(curr, '');
+      start += WORD_LENG;
+      end += WORD_LENG;
+    } else {
+      // don't want to increment start and end
+      wordsCurrent = WORDS_INITIAL;
+    }
+
+    if (wordsCurrent === '') {
+      START_INDICES.push(startIdx);
+      if (end === INIT_LENG - 1) break; // if end === INIT LENG - 1: we are done!
+
+      if (end < INIT_LENG - 1) { // backtrack
+        start = startIdx + WORD_LENG;
+        end = start + WORD_LENG;
+      }
+    }
+  }
+
+  return START_INDICES;
+}
+
+console.log(findTheSubstring("barfoofoobarthefoobarman", ["bar", "foo", "the"]));

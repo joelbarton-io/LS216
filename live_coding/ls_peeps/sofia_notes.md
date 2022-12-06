@@ -1,0 +1,4 @@
+- nice job thinking about the other examples/edge cases
+- should the elements be sorted in their groups?
+- nice use of the repl!
+- make sure to read the error message!
