@@ -1012,7 +1012,7 @@ const findSubstring = (s, words) => {
   return START_INDICES;
 }
 let s = "barfoothefoobarman";
-let words = ["foo","bar"];
+let words = ["foo", "bar"];
 console.log(findSubstring(s, words));
 
 // let s2 = "barfoofoobarthefoobarman";

@@ -15,8 +15,6 @@
     4. if an argument is a collection...
       - will all elements be the 'same' type?
 
-
-
   ## output:
 
   ## type-specific considerations:
@@ -46,7 +44,9 @@
   - is there a required min/max length for the input array to be valid?
 
   ### OBJECTS:
-  - 
+  - are the objects the same? (what does sameness mean in this context?)
+  
+
 
   ### BOOLEANS:
   - true vs truthy
