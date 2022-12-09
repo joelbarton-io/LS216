@@ -970,51 +970,126 @@ if maxSum < 0 return 0
 //                   ^_^
 
 
-const findSubstring = (s, words) => {
-  console.log('hi');
-  const START_INDICES = [];
-  const WORD_LENG = words[0].length;
-  const WORDS_INITIAL = words.join('');
-  const INIT_LENG = WORDS_INITIAL.length;
+// const findSubstring = (s, words) => {
+//   console.log('hi');
+//   const START_INDICES = [];
+//   const WORD_LENG = words[0].length;
+//   const WORDS_INITIAL = words.join('');
+//   const INIT_LENG = WORDS_INITIAL.length;
 
-  let wordsCurrent = words.join('');
-  let start = 0;
-  let end = WORD_LENG;
-  let startIdx;
+//   let wordsCurrent = words.join('');
+//   let start = 0;
+//   let end = WORD_LENG;
+//   let startIdx;
 
-  while (end <= s.length) {
-    let curr = s.slice(start, end);
+//   while (end <= s.length) {
+//     let curr = s.slice(start, end);
 
-    if (wordsCurrent.length === INIT_LENG) startIdx = start;
+//     if (wordsCurrent.length === INIT_LENG) startIdx = start;
 
-    if (wordsCurrent.includes(curr)) {
-      wordsCurrent = wordsCurrent.replace(curr, '');
-      start += WORD_LENG;
-      end += WORD_LENG;
-    } else { // don't want to increment start and end
-      wordsCurrent = WORDS_INITIAL;
-    }
+//     if (wordsCurrent.includes(curr)) {
+//       wordsCurrent = wordsCurrent.replace(curr, '');
+//       start += WORD_LENG;
+//       end += WORD_LENG;
+//     } else { // don't want to increment start and end
+//       wordsCurrent = WORDS_INITIAL;
+//     }
 
-    if (wordsCurrent === '') {
-      wordsCurrent = WORDS_INITIAL;
-      START_INDICES.push(startIdx);
+//     if (wordsCurrent === '') {
+//       wordsCurrent = WORDS_INITIAL;
+//       START_INDICES.push(startIdx);
 
-      if (end === s.length) break; // if end === INIT LENG - 1: we are done!
+//       if (end === s.length) break; // if end === INIT LENG - 1: we are done!
 
-      if (end < s.length) { // backtrack
-        start = startIdx + WORD_LENG;
-        end = start + WORD_LENG;
-      }
-    }
+//       if (end < s.length) { // backtrack
+//         start = startIdx + WORD_LENG;
+//         end = start + WORD_LENG;
+//       }
+//     }
 
-  }
+//   }
 
-  return START_INDICES;
-}
-let s = "barfoothefoobarman";
-let words = ["foo", "bar"];
-console.log(findSubstring(s, words));
+//   return START_INDICES;
+// }
+// let s = "barfoothefoobarman";
+// let words = ["foo", "bar"];
+// console.log(findSubstring(s, words));
 
 // let s2 = "barfoofoobarthefoobarman";
 // let words2 = ["bar", "foo", "the"];
 // console.log(findSubstring(s2, words2));
+
+
+function countVowels(string) {
+  // Use a set to store the vowels
+  const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+  let count = 0;
+  // Keep track of the number of vowels in the current and previous substrings
+  let currentVowels = 0;
+  let previousVowels = 0;
+  for (let i = 0; i < string.length; i++) {
+    if (vowels.has(string[i])) {
+      // If the current character is a vowel,
+      // increment the current and previous vowel counts
+      currentVowels += 1;
+      previousVowels += 1;
+    } else {
+      // If the current character is not a vowel,
+      // reset the current vowel count to 0
+      currentVowels = 0;
+    }
+    // Add the current and previous vowel counts to the total count
+    count += currentVowels + previousVowels;
+  }
+  return count;
+}
+
+// // Test the countVowels function
+// const testCases = [
+//   // Test strings with no vowels
+//   {
+//     string: "hll",
+//     expected: 0,
+//   },
+//   // Test strings with only vowels
+//   {
+//     string: "aeiou",
+//     expected: 55,
+//   },
+//   // Test strings with vowels and consonants
+//   {
+//     string: "hello",
+//     expected: 3,
+//   },
+//   {
+//     string: "baceb",
+//     expected: 15,
+//   },
+// ];
+
+// testCases.forEach((testCase) => {
+//   const { string, expected } = testCase;
+//   const result = countVowels(string);
+//   console.log(result === expected);
+// });
+// b (0 vowels)
+// ba (1 vowel)
+// bac (1 vowel)
+// bace (2 vowels)
+// baceb (2 vowels)
+// a (1 vowel)
+// ac (1 vowel)
+// ace (2 vowels)
+// aceb (2 vowels)
+// c (0 vowels)
+// ce (1 vowel)
+// ceb (1 vowel)
+// e (1 vowel)
+// eb (1 vowel)
+// b (0 vowels)
+
+
+
+
+// b, ba, bac, bace, baceb, a, ac, ace, aceb, c, ce, ceb, e, eb, b
+console.log([0, 1, 1, 2, 2, 1, 1, 2, 2, 0, 1, 1, 1, 1, 0].reduce((a, b) => a + b));
