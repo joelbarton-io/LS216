@@ -1092,4 +1092,28 @@ function countVowels(string) {
 
 
 // b, ba, bac, bace, baceb, a, ac, ace, aceb, c, ce, ceb, e, eb, b
-console.log([0, 1, 1, 2, 2, 1, 1, 2, 2, 0, 1, 1, 1, 1, 0].reduce((a, b) => a + b));
+// console.log([0, 1, 1, 2, 2, 1, 1, 2, 2, 0, 1, 1, 1, 1, 0].reduce((a, b) => a + b));
+
+
+function findOutlier(integers) {
+  // iterate from index 0 to index 2
+  // tally even and odds
+  // check which has a value > 1
+  // whichever value is greater (even or odd):
+  //   traverse integers array looking for the appropriate value (which will be either % 1 === 0 or % 2 === 0)
+
+  let even = 0;
+  let odd = 0;
+
+  for (let i = 0; i < 3; i++) {
+    if (integers[i] % 2 === 0) even++;
+    if (integers[i] % 1 === 0) odd++;
+  }
+
+  let divisor = odd > even ? 2 : 1;
+
+  for (let num of integers) {
+    
+  }
+}
+console.log(findOutlier([1, 2, 3]))
