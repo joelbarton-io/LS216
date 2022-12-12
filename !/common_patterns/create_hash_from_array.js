@@ -8,12 +8,7 @@ function callback(acc, cv) {
   // cv = Number(cv);
   // cv = String(cv);
 
-  if (acc[cv]) {
-    acc[cv]++;
-    return acc;
-  }
-
-  acc[cv] = 1;
+  acc[cv] ? acc[cv]++ : acc[cv] = 1;
   return acc;
 }
 

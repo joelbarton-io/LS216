@@ -1020,29 +1020,29 @@ if maxSum < 0 return 0
 // console.log(findSubstring(s2, words2));
 
 
-function countVowels(string) {
-  // Use a set to store the vowels
-  const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
-  let count = 0;
-  // Keep track of the number of vowels in the current and previous substrings
-  let currentVowels = 0;
-  let previousVowels = 0;
-  for (let i = 0; i < string.length; i++) {
-    if (vowels.has(string[i])) {
-      // If the current character is a vowel,
-      // increment the current and previous vowel counts
-      currentVowels += 1;
-      previousVowels += 1;
-    } else {
-      // If the current character is not a vowel,
-      // reset the current vowel count to 0
-      currentVowels = 0;
-    }
-    // Add the current and previous vowel counts to the total count
-    count += currentVowels + previousVowels;
-  }
-  return count;
-}
+// function countVowels(string) {
+//   // Use a set to store the vowels
+//   const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+//   let count = 0;
+//   // Keep track of the number of vowels in the current and previous substrings
+//   let currentVowels = 0;
+//   let previousVowels = 0;
+//   for (let i = 0; i < string.length; i++) {
+//     if (vowels.has(string[i])) {
+//       // If the current character is a vowel,
+//       // increment the current and previous vowel counts
+//       currentVowels += 1;
+//       previousVowels += 1;
+//     } else {
+//       // If the current character is not a vowel,
+//       // reset the current vowel count to 0
+//       currentVowels = 0;
+//     }
+//     // Add the current and previous vowel counts to the total count
+//     count += currentVowels + previousVowels;
+//   }
+//   return count;
+// }
 
 // // Test the countVowels function
 // const testCases = [
@@ -1095,25 +1095,27 @@ function countVowels(string) {
 // console.log([0, 1, 1, 2, 2, 1, 1, 2, 2, 0, 1, 1, 1, 1, 0].reduce((a, b) => a + b));
 
 
-function findOutlier(integers) {
-  // iterate from index 0 to index 2
-  // tally even and odds
-  // check which has a value > 1
-  // whichever value is greater (even or odd):
-  //   traverse integers array looking for the appropriate value (which will be either % 1 === 0 or % 2 === 0)
+// function findOutlier(integers) {
+//   // iterate from index 0 to index 2
+//   // tally even and odds
+//   // check which has a value > 1
+//   // whichever value is greater (even or odd):
+//   //   traverse integers array looking for the appropriate value (which will be either % 1 === 0 or % 2 === 0)
 
-  let even = 0;
-  let odd = 0;
+//   let even = 0;
+//   let odd = 0;
 
-  for (let i = 0; i < 3; i++) {
-    if (integers[i] % 2 === 0) even++;
-    if (integers[i] % 1 === 0) odd++;
-  }
+//   for (let i = 0; i < 3; i++) {
+//     if (integers[i] % 2 === 0) even++;
+//     if (integers[i] % 1 === 0) odd++;
+//   }
 
-  let divisor = odd > even ? 2 : 1;
+//   let divisor = odd > even ? 2 : 1;
 
-  for (let num of integers) {
-    
-  }
-}
-console.log(findOutlier([1, 2, 3]))
+//   for (let num of integers) {
+
+//   }
+// }
+// console.log(findOutlier([1, 2, 3]))
+
+

@@ -26,7 +26,8 @@
 
 - useful methods for `set` objects include `size`, `clear`, `has`, `add`, ``
 
-- checking if a property exists in an object and that properties value is falsy,
+- checking if a property exists in an object and that properties value is falsy
+  - use `Object.hasOwnProperty()`
 - a possible solution would be to convert the object into a list of keys and check if the desired key is present
 - like:
 
@@ -53,18 +54,17 @@ if (obj.hasOwnProperty('d')) {
 ```
 
 
-- `sort` MUTATES the array in place; always be careful with `sort`
-
-- regex
-
-
+- `sort` MUTATES the array in place; always be careful and be intentional with mutation/create a copy
 
 
 - AVOID:
-  - using `delete` on array objects as it deletes the element at the specified index but preserves the array's length and leaves an empty slot.  Only use `delete` on NON-iterable objects (just normal objects)
+  - using `delete` on array objects as it deletes the element at the specified index but preserves the array's length and leaves an empty slot (e.g. the array becomes sparse).  Only use `delete` on NON-iterable objects (like normal objects)
 
   - using `fill()` with non-primitive data types
 
   - using `JSON.stringify(obj)` to compare two objects unless you can guarantee the keys were added in the same order for each object
+    - or you can convert the obj/JSON to an array of entries and sort by **keys** then restructure the objects and compare them
 
-  -
+
+- USE:
+  - when using `match` and there's a possibility of `null` being returned (e.g. no match) you can use `|| []`
