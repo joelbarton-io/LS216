@@ -69,6 +69,7 @@ c:
   b: 1,
 }
 */
+
 function palindrome(input) {
   if (typeof input !== 'string') return 'ERROR';
   const lowerCasedInput = input.toLowerCase();

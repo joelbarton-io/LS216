@@ -84,19 +84,4 @@ function hasRemainingDuplicates(letterTally) { // should refactor
   return res;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(lastSurvivors('baacd'))

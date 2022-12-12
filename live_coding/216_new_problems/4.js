@@ -67,17 +67,17 @@ function onlyContainsNumChrs(str) {
   return str.match(/[\d]]/g) && !str.match(/[\D]/g);
 }
 
-const sparse = [];
-sparse.length = 3;
+// const sparse = [];
+// sparse.length = 3;
 
 // console.log(flattenAndUnique(1));
 // console.log(flattenAndUnique([1, 2, 3]))
 // console.log(flattenAndUnique([['true', false, true]])); // ['true', false]
-console.log(flattenAndUnique([['true', false, NaN], ['NaN']])); // ['true', false, NaN]
-console.log(flattenAndUnique([['true', false, '1abcd', 1]])); // ['true', false, '1abcd', 1]
-console.log(flattenAndUnique([[1, 2, 3], ['3', 4, 5, 'a']])); // [1, 2, 3, 4, 5, 'a']
-console.log(flattenAndUnique([[1, 2, 3, undefined, Infinity], ['3', 4, 5, 'a', {}]])); // [1, 2, 3, undefined, Infinity, 4, 5, 'a', '{}']
-console.log(flattenAndUnique([[1, 2, 3], ['3', 4, 5, 'a'], sparse])); // [1, 2, 3, 4, 5, 'a']
+// console.log(flattenAndUnique([['true', false, NaN], ['NaN']])); // ['true', false, NaN]
+// console.log(flattenAndUnique([['true', false, '1abcd', 1]])); // ['true', false, '1abcd', 1]
+// console.log(flattenAndUnique([[1, 2, 3], ['3', 4, 5, 'a']])); // [1, 2, 3, 4, 5, 'a']
+// console.log(flattenAndUnique([[1, 2, 3, undefined, Infinity], ['3', 4, 5, 'a', {}]])); // [1, 2, 3, undefined, Infinity, 4, 5, 'a', '{}']
+// console.log(flattenAndUnique([[1, 2, 3], ['3', 4, 5, 'a'], sparse])); // [1, 2, 3, 4, 5, 'a']
 // console.log(flattenAndUnique([[]])); []
 // console.log(flattenAndUnique([[1, 2, 3], ['3', 4, 5, 'a', []]])); // [1, 2, 3, 4, 5, 'a', '[]']
 // console.log(flattenAndUnique([[1, 2, 3], ['3', 4, 5, 'a', [1, 2, 3]]])); // [1, 2, 3, 4, 5, 'a', '[1, 2, 3]']
@@ -86,7 +86,29 @@ console.log(flattenAndUnique([[1, 2, 3], ['3', 4, 5, 'a'], sparse])); // [1, 2, 
 // console.log(flattenAndUnique([[1, 2, 3], ['3', 4, 5, 'a', [], sparse]])); // [1, 2, 3, 4, 5, 'a', '[null,null,null]']
 // console.log(flattenAndUnique([[1, 2, 3], ['3', 4, 5, 'a', {}, {}]])); // [1, 2, 3, 4, 5, 'a', '{}']
 
+const input = [[1, 2, 3], ['3', 4, 5, 'a']];
 
-{
-  '3': [3],
+function fn(input) {
+  if (!Array.isArray(input)) return 'non-array input';
+  if (input.some(arr => !Array.isArray(arr))) return 'non-array element detected';
+
+  const flattened = input.flat(); // [1, 2, 3, '3', 4, 5, 'a']
+
+  if (detectNaN) return 'invalid number element detected';
+  const res = [];
+
+  for (let elem of flattened) {
+    if (!res.includes(Number(elem)) && !res.includes(String(elem))) {
+      res.push(elem);
+    }
+  }
+
+  return res;
 }
+
+function detectNaN(input) {
+  return flattened.some(elem => typeof elem === 'number' && Number.isNaN(elem));
+}
+
+console.log(fn(input)); // [1, 2, 3, 4, 5, 'a']
+console.log(fn([])); // []
