@@ -44,7 +44,7 @@
   - can we expect all elements to be of the 'correct' type?
   - will any subtypes complicate our envisioned approach?
   - "empty" arrays (empty, sparse, or having non-integer-indexed properties...)
-  - non-empty arrays with non-integer-indexed properties (e.g.: `['a', 'b', '1.5': 'c']`)
+  - non-empty arrays with non-integer-indexed properties (eg: `['a', 'b', '1.5': 'c']`)
 
 - _(COMMON)_
   - is there a required min/max length for the input array to be valid?
@@ -56,7 +56,7 @@
 
 - are two objects the same? (what does `equality` mean in this context?)
 - are we concerned with overwriting a key's value?
-- is an object the right choice or should we use an `Array`, `Set`, `Map`, or counter
+- is an object the right choice or should we use an `Array`, `Set`, `Map`, or just a simple counter?
 - are we worried about key's values being "falsy" (`obj.hasOwnProperty(key)` vs. `obj[key]` behave differently)
 
 ### BOOLEANS:

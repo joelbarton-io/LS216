@@ -7,6 +7,5 @@
 ## INTERMEDIATE:
 ## OUTPUT:
 
-## SUMMARY:
 ## STEPS:
 */

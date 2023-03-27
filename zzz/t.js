@@ -1119,3 +1119,168 @@ if maxSum < 0 return 0
 // console.log(findOutlier([1, 2, 3]))
 
 
+
+function isPrime(num) {
+  let max = Math.sqrt(num);
+
+  for (let i = 2; i <= max; i++) {
+    if (num % i === 0) return false;
+  }
+
+  return num > 1;
+}
+
+function isPrimeRec(num, i = 2) {
+  if (i > Math.sqrt(num)) return num > 1; // base case
+  if (num % i === 0) return false; // action
+  return isPrimeRec(num, i++); // recursive call
+
+}
+
+// console.log(isPrimeRec(1)); //-> false
+// console.log(isPrimeRec(2)); //-> true
+// console.log(isPrimeRec(3)); //-> true
+// console.log(isPrimeRec(4)); //-> false
+
+
+function pathFinder(obj, arr) {
+  /*
+  base case:
+    - when array is empty and the value of the last element key === a string
+  */
+  let key = arr.shift();
+  if (arr.length === 0 && typeof obj[key] === 'string') return obj[key];
+  return pathFinder(obj[key], arr);
+}
+
+// const obj = { first: { second: { third: "finish" } }, second: { third: "wrong" } };
+// const arr = ["first", "second", "third"];
+// console.log(pathFinder(obj, arr));   //-> "finish"
+
+function flattenRecursively(arr) {
+  if (arr.every(elem => !Array.isArray(elem))) return arr;
+  return flattenRecursively(arr.flat());
+}
+
+// console.log(flattenRecursively([1, [2, 3, [4]]])); //-> [1, 2, 3, 4]
+// console.log(flattenRecursively([1, {}, [3, [[4]]]])); //-> [1, {}, 3, 4]
+
+
+
+//Challenge 7
+function findInOrderedSet(arr, target) {
+  let middleIdx = Math.floor(arr.length / 2);
+  let curr = arr[middleIdx];
+
+  if (arr.length === 0) return false;
+  if (curr === target) return true;
+  if (curr > target) return findInOrderedSet(arr.slice(0, middleIdx), target);
+  if (curr < target) return findInOrderedSet(arr.slice(middleIdx + 1), target);
+}
+
+// const nums = [1, 4, 6, 7, 9, 17, 45];
+// console.log(findInOrderedSet(nums, 4));  //-> true
+// console.log(findInOrderedSet(nums, 2));  //-> false
+
+
+
+//Challenge 10
+function getRangeBetween(x, y, result = []) {
+  if (x + 1 === y) return result;
+
+  x++
+  result.push(x);
+  return getRangeBetween(x, y, result);
+}
+
+// console.log(getRangeBetween(2, 9)) //-> [3, 4, 5, 6, 7, 8]
+// console.log(getRangeBetween(-5, 5)) //-> [-4, -3, -2, 1, 0, 1, 2, 3, 4]
+
+/* function palindrome(word) {
+  let leng = word.length;
+  if (leng < 1) return false;
+
+  let a = 0;
+  let b = leng - 1;
+
+  while (a < b) {
+    if (word[a] !== word[b]) return false;
+    a++;
+    b--;
+  }
+
+  return true;
+}
+let word = ''; */
+
+// console.log(palindrome(word));
+
+/*   let regExp = new RegExp(segment.map(String).join(''), 'g');
+  let result = [];
+  arrays.forEach(subArr => result.push(subArr.map(el => String(el)).join('')));
+
+  let count = 0;
+  result.forEach(candidate => {
+    if (candidate.match(regExp)) count++
+  });
+
+  return count; */
+
+  /*
+  declare result; 0
+
+  traverse input array of arrays
+    for each:
+
+    (helper)
+      needs to handle:
+        - empty segment array
+        - empty sub array
+
+      check if any slice of segment length matches segment elements exactly
+      if there is a match, increment the value of result
+
+  return result
+  */
+
+function fn(arrays, segment) {
+  let result = 0;
+  arrays.forEach(sub => { if (hasMatch(sub, segment)) result++ });
+  return result;
+}
+
+function hasMatch(sub, segment) {
+  let segLeng = segment.length;
+  let subLeng = sub.length;
+
+  if (subLeng < segLeng) return false;
+  if (segLeng === 0) return true;
+
+  let lastIndex = subLeng - segLeng;
+  let res = false;
+
+  for (let i = 0; i <= lastIndex; i++) {
+    let subSlice = sub.slice(i, i + segLeng);
+
+    if (subSlice.every((el, idx) => el === segment[idx])) {
+      res = true;
+      break;
+    }
+  }
+
+  return res;
+}
+
+/* console.log(fn([[]], [])); // 1
+console.log(fn([[1]], [1])); // 1
+console.log(fn([[], [1]], [1])); // 1
+console.log(fn([[], [1]], [1])); // 1
+console.log(fn([[], [1]], [])); // 2 */
+console.log(fn([[], [1,1,1,1,1,1,1], []], [1])); // 1
+console.log(fn([[], [1,1,1,1,1,1,1], []], [])); // 3
+/* console.log(fn([[1, 2, 3, 3, undefined], [3, 3, undefined, 3]], [3, 3, undefined])); // 2
+console.log(fn([[1, 2, 3, 3, 'undefined'], [3, 3, undefined, 3]], [3, 3, undefined])); // 1
+console.log(fn([[1, 2, 3, '3', undefined], ['3', 3, undefined, 3]], [3, '3', undefined])); // 1
+console.log(fn([[3, 3, undefined], [1, 2, 3, 3, undefined], [3, 3, undefined, 3]], [3, 3, undefined])); // 3
+console.log(fn([[3, null, undefined], [1, 2, 3, 3, undefined], [3, 3, undefined, 3]], [3, null, undefined])); // 1
+console.log(fn([[3, null, undefined], [1, 2, 3, undefined], [3, 3, undefined, 3]], [3, undefined])); // 2 */

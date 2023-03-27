@@ -78,14 +78,24 @@ traverse input array values with for
 // }
 
 function twoSum(input, k) {
+  const hash_table = new Map();
+
   for (let i = 0; i < input.length; i++) {
     const complement = k - input[i];
-    const potential = input.indexOf(complement);
-    if (potential !== -1 && potential !== i) return [potential, i];
+    hash_table.set(complement, i);
   }
+
+  for (let i = 0; i < input.length; i++) {
+    let key = input[i];
+    if (hash_table.has(key) && hash_table.get(key) !== i) {
+      return [hash_table.get(key), i];
+    }
+  }
+
+  return [];
 }
 
-console.log(twoSum([2, 3], 4));
+console.log(twoSum([2, 3], 4)); // []
 console.log(twoSum([1, 2, 3, 4], 4)); // [0, 2]
 console.log(twoSum([1, 2, 4, 3], 4)); // [0, 3]
 console.log(twoSum([-1, 2, 3, 4], 1)); // [0, 1]

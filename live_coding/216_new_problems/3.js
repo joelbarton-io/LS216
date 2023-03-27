@@ -76,7 +76,7 @@ if is prime funtion: (string num)
   should be returned from the helper
 
 */
-
+/*
 function primeNumberPrinter(input) {
   const regex = /[0-9]+/g;
   if (typeof input !== 'string') return 'invalid input type';
@@ -84,7 +84,24 @@ function primeNumberPrinter(input) {
 
   const nums = input.match(regex);
 
-  return nums.filter(isPrime).map(Number);
+  const allPrimes = [];
+
+
+  // return nums.filter(isPrime).map(Number);
+}
+
+function processCandidate(stringNum) {
+  if (isPrime(stringNum)) return [Number(stringNum)];
+
+  const candidates = [];
+  for (let i = 0; i < stringNum.length; i++) {
+    for (let j = i + 1; j < stringNum.length; j++) {
+      candidates.push(stringNum.slice(i, j))
+    }
+  }
+  console.log(candidates);
+
+
 }
 
 function isPrime(strNum) {
@@ -105,3 +122,4 @@ console.log(primeNumberPrinter("a4bc2k13Infinity")); // [2, 13]
 console.log(primeNumberPrinter("a4bc2k13NaN")); // [2, 13]
 console.log(primeNumberPrinter("a4bc2k130")); // [2]
 console.log(primeNumberPrinter("097")); // [97]
+*/
